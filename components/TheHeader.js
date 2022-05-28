@@ -1,6 +1,7 @@
 
 import { CCol, CContainer, CRow } from "coreui-next";
 import Link from "next/link";
+import { MDBIcon } from "mdbreact";
 
 const TheHeader = () => {
   return (
@@ -49,7 +50,7 @@ const TheHeader = () => {
         <Link href="/">
           <a className="navbar-brand p-0">
             <h1 className=" text-danger ">
-              <i className="fa fa-hospital"></i>Pharma
+            <MDBIcon fab icon="ioxhost" />Pharma
             </h1>
           </a>
         </Link>
@@ -82,16 +83,16 @@ const TheHeader = () => {
                 </a>
               </Link>
               <div className="dropdown-menu m-0">
-                <Link href="/">
+                <Link href="">
                   <a className="dropdown-item">Pricing Plan</a>
                 </Link>
-                <Link href="/">
+                <Link href="">
                   <a className="dropdown-item">Our Dentist</a>
                 </Link>
-                <Link href="/">
+                <Link href="">
                   <a className="dropdown-item">Testimonial</a>
                 </Link>
-                <Link href="/">
+                <Link href="">
                   <a className="dropdown-item active">Appointment</a>
                 </Link>
               </div>

@@ -1,5 +1,5 @@
 import { MDBIcon } from "mdbreact";
- const CustomizeContact = () => {
+ const CutomizeProducts = () => {
   return (
     <div><div className="flex flex-col animated  zoomIn ">
     <ul className="space-y-2">
@@ -109,7 +109,7 @@ import { MDBIcon } from "mdbreact";
           </button>
         </div>
       </li>
-      <hr className="min-w-full bg-white my-3 " />
+      <hr className="w-64 bg-white my-3" />
       <li>
       <label className="block pr-5 font-medium text-white text-center">Our Services</label>
         <form action="/send-data-here" method="post">
@@ -276,9 +276,9 @@ import { MDBIcon } from "mdbreact";
           </div>
         </div>
       </li>
-
+     
     </ul>
   </div></div>
   )
 }
-export default CustomizeContact;
+export default CutomizeProducts;

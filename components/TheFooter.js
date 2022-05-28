@@ -27,24 +27,24 @@ const TheFooter = () => {
                         <h2 className="h4 text-light pb-3 ">Quick Links</h2>
                         <ul className="list-unstyled text-light footer-link-list">
                             <li className="border-0 bg-dark py-1" >
-                                <a className="text-light text-decoration-none p-3" target="_blank" href='/' ><i className="fab fa-facebook-f fa-md fa-fw"></i><b><i>Facebook</i></b></a>
+                                <a className="text-light text-decoration-none p-3" target="_blank" href='' ><i className="fab fa-facebook-f fa-md fa-fw"></i><b><i>Facebook</i></b></a>
                             </li>
 
                             <br />
                             <li className="border-0 bg-dark py-1">
-                                <a className="text-light text-decoration-none p-3" target="_blank" href='/'><i className="fab fa-twitter fa-md fa-fw"></i><b><i>Twitter</i></b></a>
+                                <a className="text-light text-decoration-none p-3" target="_blank" href=''><i className="fab fa-twitter fa-md fa-fw"></i><b><i>Twitter</i></b></a>
                             </li>
                             <br />
                             <li className="border-0 bg-dark py-1" >
-                                <a className="text-light text-decoration-none p-3" target="_blank" href='/'><i className="fab fa-instagram fa-md fa-fw"></i><b><i>Instagram</i></b></a>
+                                <a className="text-light text-decoration-none p-3" target="_blank" href=''><i className="fab fa-instagram fa-md fa-fw"></i><b><i>Instagram</i></b></a>
                             </li>
                             <br />
                             <li className="border-0 bg-dark py-1" >
-                                <a className="text-light text-decoration-none p-3" target="_blank" href='/'><i className="fab fa-pinterest fa-md fa-fw"></i><b><i>Pinterest</i></b></a>
+                                <a className="text-light text-decoration-none p-3" target="_blank" href=''><i className="fab fa-pinterest fa-md fa-fw"></i><b><i>Pinterest</i></b></a>
                             </li>
                             <br />
                             <li className="border-0 bg-dark py-1 " >
-                                <a className="text-light text-decoration-none p-3" target="_blank" href='/'><i className="fab fa-linkedin fa-md fa-fw"></i><b><i>Linkedin</i></b></a>
+                                <a className="text-light text-decoration-none p-3" target="_blank" href=''><i className="fab fa-linkedin fa-md fa-fw"></i><b><i>Linkedin</i></b></a>
                             </li>
                         </ul>
                     </div>
@@ -60,14 +60,14 @@ const TheFooter = () => {
                             <br />
                             <li>
 
-                                <b>Phone&nbsp;:&nbsp;<a className="text-decoration-none  text-light" href="#"> +91456789123 </a></b>
+                                <b>Phone&nbsp;:&nbsp;<a className="text-decoration-none  text-light" href=""> +91456789123 </a></b>
                                 <br />
-                                <b>Whatsapp &nbsp;:&nbsp;<a className="text-decoration-none  text-light" href="#">+91789456123</a></b>
+                                <b>Whatsapp &nbsp;:&nbsp;<a className="text-decoration-none  text-light" href="">+91789456123</a></b>
                             </li>
                             <br />
                             <li>
                                 <b> <b>Email:</b> <br /> <i className="fa fa-envelope fa-fw"></i>
-                                    <a className="text-decoration-none text-light" href="#">arlak@gmail.com</a>
+                                    <a className="text-decoration-none text-light" href="">arlak@gmail.com</a>
 
                                 </b>
                             </li>

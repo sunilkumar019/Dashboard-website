@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 
- const CustomizeHome = () => {
+ const Home = () => {
   return (
     <div>
          <div className="flex flex-col animated  zoomIn ">
@@ -23,7 +23,7 @@ import { MDBIcon } from "mdbreact";
                         <div className="flex text-sm text-gray-600">
                           <label
                             htmlFor="file-upload"
-                            className="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                            className="relative cursor-pointer bg-black rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
                           >
                             <span>Upload a file</span>
                             <input
@@ -45,13 +45,13 @@ import { MDBIcon } from "mdbreact";
                   <div className="mr-2 py-2 bg-black text-right sm:px-6">
                     <button
                       type="submit"
-                      className="inline-flex justify-center py-1 px-3  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="inline-flex justify-center py-1 px-3  shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       Save
                     </button>
                   </div>
                 </li>
-                <hr className="min-w-full bg-white my-3 " />
+                <hr className="w-64 bg-white my-3" />
                 <li>
                 <label className="block pr-5 font-medium text-white text-center">Information cards</label>
                   <label className="block text-sm font-medium text-white">
@@ -70,7 +70,7 @@ import { MDBIcon } from "mdbreact";
                       <div className="flex text-sm text-gray-600">
                         <label
                           htmlFor="file-upload"
-                          className="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                          className="relative cursor-pointer bg-black rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                         >
                           <span>Upload a file</span>
                           <input
@@ -106,13 +106,13 @@ import { MDBIcon } from "mdbreact";
                   <div className="mr-2 py-2 bg-black text-right sm:px-6">
                     <button
                       type="submit"
-                      className="inline-flex justify-center py-1 px-3  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="inline-flex justify-center py-1 px-3  shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       Save
                     </button>
                   </div>
                 </li>
-                <hr className="min-w-full bg-white my-3 " />
+                <hr className="w-64 bg-white my-3" />
                 <li>
                 <label className="block pr-5 font-medium text-white text-center">Our Services</label>
                   <form action="/send-data-here" method="post">
@@ -148,13 +148,13 @@ import { MDBIcon } from "mdbreact";
                     />
                     <button
                       type="submit"
-                      className="ml-48 inline-flex justify-center py-1 px-3 my-2 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="ml-48 inline-flex justify-center py-1 px-3 my-2 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       Save
                     </button>
                   </form>
                 </li>
-                <hr className="min-w-full bg-white my-3 " />
+                <hr className="w-64 bg-white my-3" />
                 <li>
                 <label className="block pr-5 font-medium text-white text-center">Our goals</label>
                   <form action="/send-data-here" method="post">
@@ -174,7 +174,7 @@ import { MDBIcon } from "mdbreact";
                       <div className="flex text-sm text-gray-600">
                         <label
                           htmlFor="file-upload"
-                          className="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                          className="relative cursor-pointer bg-black rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                         >
                           <span>Upload a file</span>
                           <input
@@ -224,7 +224,7 @@ import { MDBIcon } from "mdbreact";
                     />
                     <button
                       type="submit"
-                      className="ml-48 inline-flex justify-center py-1 px-3 my-2 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="ml-48 inline-flex justify-center py-1 px-3 my-2 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       Save
                     </button>
@@ -272,7 +272,7 @@ import { MDBIcon } from "mdbreact";
                     <div className="mr-2 py-2 bg-black text-right sm:px-6">
                       <button
                         type="submit"
-                        className="inline-flex justify-center py-1 px-3 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="inline-flex justify-center py-1 px-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       >
                         Save
                       </button>
