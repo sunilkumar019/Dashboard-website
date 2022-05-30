@@ -1,4 +1,4 @@
-import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow } from "coreui-next";
+import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from "coreui-next";
 import Link from "next/link";
 const Contact = () => {
   return (
@@ -21,9 +21,23 @@ const Contact = () => {
       </section>
 
 
+      <div>
+        <CCard>
+          <CCardImg
+          className='relative h-72 '
+            alt="Card image cap"
+            src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
+          
+          />
+            <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
+              <h1  style={{ fontWeight: "bold", fontSize: "52px" }}>Contact Us</h1>
+            </div>
+        
+        </CCard>
+      </div>
+
+
       {/*contact us*/}
-
-
       <section >
         <div className="container-lg py-8 mt-5">
           <div className="row "></div>
@@ -95,7 +109,7 @@ const Contact = () => {
               <div className="col-12 col-md-6 mb-4" >
 
                 <div className="map-responsive ">
-                  <iframe frameBorder="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=+(Arlak%20Biotech%20Pvt%20Ltd)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" style={{ height: "420px", width: "335px" }} allowFullScreen></iframe>
+                  <iframe frameBorder="0" src="https://maps.google.com/maps?width=100%25&amp;height=420&amp;hl=en&amp;q=+(Arlak%20Biotech%20Pvt%20Ltd)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" style={{ height: "420px", width: "335px" }} allowFullScreen></iframe>
                 </div>
               </div>
 

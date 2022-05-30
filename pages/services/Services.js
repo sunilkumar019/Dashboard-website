@@ -1,8 +1,6 @@
 import {
   CCard,
   CCardImg,
-  CCardImgOverlay,
-  CCardText,
   CCol,
   CContainer,
   CRow,
@@ -25,6 +23,9 @@ const Services = () => {
   }, []);
   return (
     <div>
+
+
+
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
@@ -45,9 +46,23 @@ const Services = () => {
           </Link>
         </div>
       </section>
-      {/*sevices*/}
-      
 
+      <div>
+        <CCard>
+          <CCardImg
+          className='relative h-72 '
+            alt="Card image cap"
+            src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
+          
+          />
+            <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
+              <h1  style={{ fontWeight: "bold", fontSize: "52px"}}>Services</h1>
+            </div>
+        
+        </CCard>
+      </div>
+
+      {/*sevices*/}
       <section>
         <CContainer className="my-5">
           <CRow>

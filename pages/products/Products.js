@@ -31,7 +31,7 @@ const Products = () => {
 
       
       <section >
-        <CContainer fluid className="py-3 hero-header globalColor1 ">
+        <CContainer fluid className="py-3 hero-header bg-gradient-to-r from-rose-500 to-rose-900 ">
           <CRow>
             <div className="col-12 text-center">
               <h1 className="h2 text-white animated zoomIn">Our Products</h1>

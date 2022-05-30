@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 export const counterSlice = createSlice({
+ 
   name: 'select',
-  initialState:[ {
-    value:"",
-  }],
+  initialState: {
+    value: "",
+  },
   reducers: {
     selectOption: (state, action) => {
-     state.push( action.payload)
+      state.value==action.payload.selectedOption
      
     },
   },
+ 
 })
+export const { selectOption } = counterSlice.actions
 
-
-export const {selectOption } = counterSlice.actions
-
-export default counterSlice.reducer
+export default counterSlice.reducer;

@@ -19,7 +19,7 @@ const TheFooter = () => {
                         <h2 className="h4 text-light  pb-3">Follow Us</h2>
 
                         <div className="map-responsive">
-                            <iframe frameBorder="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=+(Arlak%20Biotech%20Pvt%20Ltd)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" style={{ width: "260px", height: "240px", }} allowFullScreen></iframe>
+                            <iframe frameBorder="0" src=""style={{ width: "260px", height: "240px",border:'2px solid white' }} allowFullScreen></iframe>
 
                         </div>
                     </div>

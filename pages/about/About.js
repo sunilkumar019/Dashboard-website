@@ -2,7 +2,7 @@
 import React from 'react'
 import OurGoals from './OurGoals'
 import Link from "next/link";
-import { CCard, CContainer, CRow,CCol } from 'coreui-next';
+import { CCard, CContainer, CRow,CCol, CCardImgOverlay, CCardText, CCardImg } from 'coreui-next';
 
 
 const About = () => {
@@ -12,17 +12,32 @@ const About = () => {
       <section>
         <div className="icon-Homebar">
 
-          <Link href="#">
+          <Link href="/">
             <a className="phone"><i className="fa fa-phone "></i></a>
           </Link>
-          <Link href="#">
+          <Link href="/">
             <a className="facebook"><i className="fab fa-facebook-f fa-md fa-fw"></i></a>
           </Link>
-          <Link href="#">
+          <Link href="/">
             <a className="email"><i className="fa fa-envelope "></i></a>
           </Link>
         </div>
       </section>
+
+      <div>
+        <CCard>
+          <CCardImg
+          className='relative h-72 '
+            alt="Card image cap"
+            src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
+          
+          />
+            <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
+              <h1  style={{ fontWeight: "bold", fontSize: "52px" }}>About Us</h1>
+            </div>
+        
+        </CCard>
+      </div>
 
       {/*cards*/}
       <section className="bg-light pt-5 pb-4">

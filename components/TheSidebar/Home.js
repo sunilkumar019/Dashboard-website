@@ -23,7 +23,7 @@ import { MDBIcon } from "mdbreact";
                         <div className="flex text-sm text-gray-600">
                           <label
                             htmlFor="file-upload"
-                            className="relative cursor-pointer bg-black rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
+                            className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
                           >
                             <span>Upload a file</span>
                             <input
@@ -42,7 +42,7 @@ import { MDBIcon } from "mdbreact";
                     </div>
                   </div>
 
-                  <div className="mr-2 py-2 bg-black text-right sm:px-6">
+                  <div className="mr-2 py-2  text-right sm:px-6">
                     <button
                       type="submit"
                       className="inline-flex justify-center py-1 px-3  shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -70,7 +70,7 @@ import { MDBIcon } from "mdbreact";
                       <div className="flex text-sm text-gray-600">
                         <label
                           htmlFor="file-upload"
-                          className="relative cursor-pointer bg-black rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                          className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                         >
                           <span>Upload a file</span>
                           <input
@@ -103,7 +103,7 @@ import { MDBIcon } from "mdbreact";
                     autoComplete="given-name"
                     className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
                   />
-                  <div className="mr-2 py-2 bg-black text-right sm:px-6">
+                  <div className="mr-2 py-2  text-right sm:px-6">
                     <button
                       type="submit"
                       className="inline-flex justify-center py-1 px-3  shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -174,7 +174,7 @@ import { MDBIcon } from "mdbreact";
                       <div className="flex text-sm text-gray-600">
                         <label
                           htmlFor="file-upload"
-                          className="relative cursor-pointer bg-black rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                          className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                         >
                           <span>Upload a file</span>
                           <input
@@ -269,7 +269,7 @@ import { MDBIcon } from "mdbreact";
                       defaultValue={""}
                     />
 
-                    <div className="mr-2 py-2 bg-black text-right sm:px-6">
+                    <div className="mr-2 py-2 text-right sm:px-6">
                       <button
                         type="submit"
                         className="inline-flex justify-center py-1 px-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -454,4 +454,4 @@ import { MDBIcon } from "mdbreact";
     </div>
   )
 }
-export default CustomizeHome;
+export default Home;

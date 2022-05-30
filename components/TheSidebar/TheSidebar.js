@@ -6,55 +6,54 @@ import { CContainer, CRow, CCol } from "coreui-next";
 import { useSelector, useDispatch } from 'react-redux'
 import { selectOption } from '../../store/createSlice';
 
-// import Home from "./Home";
-// import About from './About'
-// import Services from './Services';
-// import Products from './Products'
+import Home from "./Home";
+import About from './About'
+import Services from './Services';
+
 
 const TheSidebar = () => {
+
   const [visible, setVisible] = useState(false);
-  const count = useSelector((state) => state.changed)
-  const dispatch = useDispatch()
+  const [render, setRender] = useState([]);
+  const count = useSelector((state) => state.changed.payload);
+  const dispatch = useDispatch();
 
 
-  //console.log(selectOption("hello"))
 
 
-  // const [render, setRender] = useState(<Home />)
-  // const [change, setChange] = useState('select');
-  // const handlerChange = (event) => {
-  
-  //   console.log(event);
-  //   if (event === "home") {
+  const handlerChange = (event) => {
 
-  //     setRender(<Home />)
-  //   }
+    const payload = { selectOption: event }
+    console.log(payload)
 
-  //   else if (event === "about") {
-  //     setRender(<About />)
-  //   }
+    const dis = dispatch(selectOption(payload))
 
-  //   else if (event === "services") {
-  //     setRender(<Services />)
-  //   }
-   
-  //   setChange(event);
+    if (event == "home") {
 
-  // }
+      setRender(<Home />)
+    }
 
+    else if (event == "about") {
+      setRender(<About />)
+    }
 
+    else if (event == "services") {
+      setRender(<Services />)
+    }
+
+  };
 
   const toggle = () => {
     setVisible(!visible);
   };
 
 
+
   return (
     <>
-
       <div>
-        <CContainer fluid className="ps-5 d-none d-lg-block bg-black py-2 ">
-          <CRow className="gx-0 bg-black">
+        <CContainer fluid className="ps-5 d-none d-lg-block  sidebarColor1 py-2 ">
+          <CRow className="gx-0  sidebarColor1">
             <CCol md={12} className="text-start text-lg-start  ">
               <div className="position-relative d-inline-flex align-items-start ">
                 <div style={{ marginLeft: "283px" }}>
@@ -65,11 +64,10 @@ const TheSidebar = () => {
                   &nbsp; &nbsp;
                   <select
                     type="select"
-                    className="py-1 text-white bg-black outline-none px-4 border border-gray-300 rounded-md  shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 "
+                    className="py-1 text-white  sidebarColor1  outline-none px-4 border border-gray-300 rounded-md  shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 "
                     onClick={() => setVisible({ visible })}
-                    value={count} onChange={(e) => dispatch(selectOption(e.target.value))} >
-
-                    <option value="select" >Select</option>
+                    value={count} onChange={(e) => handlerChange(e.target.value)} >
+                 <Link href='/'><option value="select" >Select</option></Link>
                     <option value="home">Home</option>
                     <option value="about">About</option>
                     <option value="services">Services</option>
@@ -82,7 +80,7 @@ const TheSidebar = () => {
       </div>
       {visible ? (
         <CSidebar
-          className={`h-screen fixed top-0 md:left-0 overflow-y-auto flex-row overflow-auto shadow-xl bg-black w-80 ...w-screen z-50  animated slideInLeft example20`}
+          className={`h-screen fixed top-0 md:left-0 overflow-y-auto flex-row overflow-auto shadow-xl  sidebarColor1 w-80 ...w-screen z-50  animated slideInLeft example20`}
         >
           <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative mt-3 animated  slideInLeft ">
             <button onClick={() => setVisible(!visible)}>
@@ -104,7 +102,7 @@ const TheSidebar = () => {
 
             {/* customize */}
             <div>
-              {/* {render} */}
+              {render}
             </div>
           </div>
         </CSidebar>
