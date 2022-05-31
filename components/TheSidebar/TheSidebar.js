@@ -1,17 +1,24 @@
 import { CSidebar } from "@coreui/react";
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 import { CContainer, CRow, CCol } from "coreui-next";
 import { useSelector, useDispatch } from 'react-redux'
 import { selectOption } from '../../store/createSlice';
-
 import Home from "./Home";
 import About from './About'
 import Services from './Services';
+import { aboutJson } from "../../data/about/AboutData";
 
+export const getStaticProps = () => {
+  return {
+    props: {
+      manage: aboutJson,
+    }
+  }
+}
 
-const TheSidebar = () => {
+const TheSidebar = ({ manage }) => {
 
   const [visible, setVisible] = useState(false);
   const [render, setRender] = useState([]);
@@ -20,17 +27,17 @@ const TheSidebar = () => {
 
 
 
-
   const handlerChange = (event) => {
 
     const payload = { selectOption: event }
-    console.log(payload)
+    dispatch(selectOption(payload))
 
-    const dis = dispatch(selectOption(payload))
+    // console.log(payload)
 
     if (event == "home") {
 
       setRender(<Home />)
+
     }
 
     else if (event == "about") {
@@ -43,17 +50,18 @@ const TheSidebar = () => {
 
   };
 
+  // toggle
   const toggle = () => {
     setVisible(!visible);
   };
 
-
-
   return (
     <>
       <div>
-        <CContainer fluid className="ps-5 d-none d-lg-block  sidebarColor1 py-2 ">
-          <CRow className="gx-0  sidebarColor1">
+
+        {/* select option */}
+        <CContainer fluid className="ps-5 d-none d-lg-block sidebarColor1">
+          <CRow className="gx-0  sidebarColor1 py-1">
             <CCol md={12} className="text-start text-lg-start  ">
               <div className="position-relative d-inline-flex align-items-start ">
                 <div style={{ marginLeft: "283px" }}>
@@ -67,12 +75,13 @@ const TheSidebar = () => {
                     className="py-1 text-white  sidebarColor1  outline-none px-4 border border-gray-300 rounded-md  shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 "
                     onClick={() => setVisible({ visible })}
                     value={count} onChange={(e) => handlerChange(e.target.value)} >
-                 <Link href='/'><option value="select" >Select</option></Link>
+                    <option value="select">Select</option>
                     <option value="home">Home</option>
                     <option value="about">About</option>
                     <option value="services">Services</option>
                   </select>
                 </div>
+
               </div>
             </CCol>
           </CRow>
@@ -100,11 +109,13 @@ const TheSidebar = () => {
             </Link>
             <hr className="min-w-full bg-white " />
 
-            {/* customize */}
+            {/* customize components*/}
             <div>
               {render}
             </div>
+
           </div>
+
         </CSidebar>
       ) : (
         ""

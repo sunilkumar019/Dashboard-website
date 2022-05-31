@@ -1,5 +1,8 @@
 import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from "coreui-next";
 import Link from "next/link";
+import { MDBIcon } from "mdbreact";
+
+
 const Contact = () => {
   return (
     <div>
@@ -8,18 +11,17 @@ const Contact = () => {
       <section>
         <div className="icon-Homebar">
 
-          <Link href="#">
-            <a className="phone"><i className="fa fa-phone "></i></a>
+          <Link href="/">
+            <a className="phone"><MDBIcon icon="phone"/></a>
           </Link>
-          <Link href="#">
-            <a className="facebook"><i className="fab fa-facebook-f fa-md fa-fw"></i></a>
+          <Link href="/">
+            <a className="facebook"><MDBIcon fab icon="whatsapp"/></a>
           </Link>
-          <Link href="#">
-            <a className="email"><i className="fa fa-envelope "></i></a>
+          <Link href="/">
+            <a className="email"><MDBIcon icon="envelope"/></a>
           </Link>
         </div>
       </section>
-
 
       <div>
         <CCard>

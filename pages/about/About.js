@@ -1,42 +1,61 @@
 
-import React from 'react'
+import React, { useState, useEffect ,Component} from 'react'
 import OurGoals from './OurGoals'
 import Link from "next/link";
-import { CCard, CContainer, CRow,CCol, CCardImgOverlay, CCardText, CCardImg } from 'coreui-next';
+import { CCard, CContainer, CRow, CCol, CCardImg } from 'coreui-next';
+import { MDBIcon } from 'mdbreact';
+import { aboutJson } from '../../data/about/AboutData';
 
 
-const About = () => {
+export const getStaticProps = () => {
+  return {
+    props: {
+      manage: aboutJson,
+    }
+  }
+}
+
+const About = ( {manage}) => {
   return (
     <div>
+
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
 
           <Link href="/">
-            <a className="phone"><i className="fa fa-phone "></i></a>
+            <a className="phone"><MDBIcon icon="phone" /></a>
           </Link>
           <Link href="/">
-            <a className="facebook"><i className="fab fa-facebook-f fa-md fa-fw"></i></a>
+            <a className="facebook"><MDBIcon fab icon="whatsapp" /></a>
           </Link>
           <Link href="/">
-            <a className="email"><i className="fa fa-envelope "></i></a>
+            <a className="email"><MDBIcon icon="envelope" /></a>
           </Link>
         </div>
       </section>
 
       <div>
-        <CCard>
+       {
+         manage.slice(0,1).map((it)=>{
+           return(
+             <>
+              <CCard>
           <CCardImg
-          className='relative h-72 '
+            className='relative h-72 '
             alt="Card image cap"
-            src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
-          
+            src={it.url}
+
           />
-            <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
-              <h1  style={{ fontWeight: "bold", fontSize: "52px" }}>About Us</h1>
-            </div>
-        
+          <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
+            <h1 style={{ fontWeight: "bold", fontSize: "52px" }}>{it.overlayText}</h1>
+          </div>
+
         </CCard>
+             </>
+           )
+         })
+       }
       </div>
 
       {/*cards*/}
@@ -44,10 +63,11 @@ const About = () => {
         <CContainer className="mb-4">
           <CRow>
             <CCol md={12} className="mt-4">
-              <h1 className=" h2 text-dark  text-center pb-2"><b>Business <span className="globalColor10">Beliefs</span></b></h1>
+
+              <h1 className=" h2 text-dark  text-center pb-2"><b>Business<span className="globalColor10"></span></b></h1>
 
               <p className="text-dark text-start">
-                Dexon Biotech Pvt.Ltd is a responsible Pharma PCD company dedicated to serve the nation and its people. We have huge contribution in the field of health and pharmaceutical are:
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus praesentium voluptates adipisci tenetur suscipit aut eos corporis sed sit quisquam!
               </p>
             </CCol>
           </CRow>

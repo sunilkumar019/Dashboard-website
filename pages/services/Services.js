@@ -6,43 +6,27 @@ import {
   CRow,
 } from "coreui-next";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { MDBIcon } from "mdbreact";
+
 
 const Services = () => {
-  const [text, setText] = useState([]);
 
-  const Fetching = async () => {
-    const response = await fetch("/api/hello");
-    const data = await response.json();
-    setText(data);
-  };
-
-  useEffect(() => {
-    console.log(text);
-    Fetching();
-  }, []);
   return (
     <div>
-
-
+     
 
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
-          <Link href="#">
-            <a className="phone">
-              <i className="fa fa-phone "></i>
-            </a>
+
+          <Link href="/">
+            <a className="phone"><MDBIcon icon="phone" /></a>
           </Link>
-          <Link href="#">
-            <a className="facebook">
-              <i className="fab fa-facebook-f fa-md fa-fw"></i>
-            </a>
+          <Link href="/">
+            <a className="facebook"><MDBIcon fab icon="whatsapp" /></a>
           </Link>
-          <Link href="#">
-            <a className="email">
-              <i className="fa fa-envelope "></i>
-            </a>
+          <Link href="/">
+            <a className="email"><MDBIcon icon="envelope" /></a>
           </Link>
         </div>
       </section>
@@ -50,15 +34,15 @@ const Services = () => {
       <div>
         <CCard>
           <CCardImg
-          className='relative h-72 '
+            className='relative h-72 '
             alt="Card image cap"
             src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
-          
+
           />
-            <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
-              <h1  style={{ fontWeight: "bold", fontSize: "52px"}}>Services</h1>
-            </div>
-        
+          <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
+            <h1 style={{ fontWeight: "bold", fontSize: "52px" }}>Services</h1>
+          </div>
+
         </CCard>
       </div>
 

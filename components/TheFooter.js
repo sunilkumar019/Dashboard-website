@@ -19,31 +19,31 @@ const TheFooter = () => {
                         <h2 className="h4 text-light  pb-3">Follow Us</h2>
 
                         <div className="map-responsive">
-                            <iframe frameBorder="0" src=""style={{ width: "260px", height: "240px",border:'2px solid white' }} allowFullScreen></iframe>
+                            <iframe frameBorder="0" src="" style={{ width: "260px", height: "240px",border:'2px solid white' }} allowFullScreen></iframe>
 
                         </div>
                     </div>
                     <div className="col-lg-3 col-md-6 col-12 pt-5  ">
                         <h2 className="h4 text-light pb-3 ">Quick Links</h2>
-                        <ul className="list-unstyled text-light footer-link-list">
-                            <li className="border-0 bg-dark py-1" >
+                        <ul className="list-unstyled text-light footer-link-list ">
+                            <li className="border-0  py-1 bg-gray-600  hover:bg-rose-700 " >
                                 <a className="text-light text-decoration-none p-3" target="_blank" href='' ><i className="fab fa-facebook-f fa-md fa-fw"></i><b><i>Facebook</i></b></a>
                             </li>
 
                             <br />
-                            <li className="border-0 bg-dark py-1">
+                            <li className="border-0 bg-gray-600  hover:bg-rose-700 py-1">
                                 <a className="text-light text-decoration-none p-3" target="_blank" href=''><i className="fab fa-twitter fa-md fa-fw"></i><b><i>Twitter</i></b></a>
                             </li>
                             <br />
-                            <li className="border-0 bg-dark py-1" >
+                            <li className="border-0 bg-gray-600  hover:bg-rose-700 py-1" >
                                 <a className="text-light text-decoration-none p-3" target="_blank" href=''><i className="fab fa-instagram fa-md fa-fw"></i><b><i>Instagram</i></b></a>
                             </li>
                             <br />
-                            <li className="border-0 bg-dark py-1" >
+                            <li className="border-0 bg-gray-600  hover:bg-rose-700 py-1" >
                                 <a className="text-light text-decoration-none p-3" target="_blank" href=''><i className="fab fa-pinterest fa-md fa-fw"></i><b><i>Pinterest</i></b></a>
                             </li>
                             <br />
-                            <li className="border-0 bg-dark py-1 " >
+                            <li className="border-0 bg-gray-600  hover:bg-rose-700 py-1 " >
                                 <a className="text-light text-decoration-none p-3" target="_blank" href=''><i className="fab fa-linkedin fa-md fa-fw"></i><b><i>Linkedin</i></b></a>
                             </li>
                         </ul>

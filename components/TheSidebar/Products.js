@@ -1,7 +1,7 @@
 import { MDBIcon } from "mdbreact";
  const CutomizeProducts = () => {
   return (
-    <div><div className="flex flex-col animated  zoomIn ">
+    <div><div className="flex flex-col animated  slideInLeft ">
     <ul className="space-y-2">
       <li>
         <div>

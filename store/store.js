@@ -3,7 +3,7 @@ import createSlice from './createSlice';
 
 export default configureStore({
   reducer: {
-    changed: createSlice,
+    changed:createSlice,
   },
 })
 

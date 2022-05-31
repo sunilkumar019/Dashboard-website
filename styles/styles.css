@@ -220,7 +220,7 @@ body {
 .icon-Homebar {
   position: fixed;
   top: 50%;
-  right: 0%;
+  right:0%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -230,7 +230,7 @@ body {
 .icon-Homebar a {
   display: block;
   text-align: center;
-  padding: 10px 12px;
+  padding: 9px 14px;
   transition: all 0.3s ease;
   color: white;
   font-size: 20px;

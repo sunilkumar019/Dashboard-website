@@ -5,14 +5,15 @@ const CustomizeAbout = () => {
   return (
     <div>
       {" "}
-      <div className="flex flex-col animated  zoomIn ">
+      <div className="flex flex-col animated  slideInLeft ">
         <ul className="space-y-2">
           <li>
             <label className="block pr-5 font-medium text-white text-center">
-             Banner/Text
+            <MDBIcon icon="bars" className="text-white" size="" />{" "}
+              &nbsp;Banner/Text
             </label>
             <label className="block text-sm font-medium text-white">
-              <MDBIcon icon="image" className="text-white" size="" />{" "}
+              <MDBIcon far icon="image" className="text-white" size="" />{" "}
               &nbsp;Image
             </label>
             <div className="mt-1 flex justify-center px-6 pt-2 pb-6 border-2 border-gray-300 border-dashed rounded-md w-64 ">
@@ -22,7 +23,7 @@ const CustomizeAbout = () => {
                 <div className="flex text-sm text-gray-600">
                   <label
                     htmlFor="file-upload"
-                    className="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                    className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900  focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                   >
                     <span>Upload a file</span>
                     <input
@@ -51,9 +52,9 @@ const CustomizeAbout = () => {
               id="first-name"
               placeholder="Owning Pharma Franchise"
               autoComplete="given-name"
-              className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+              className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
             />
-            <div className="mr-2 py-2 bg-black text-right sm:px-6">
+            <div className="mr-2 py-2 text-right sm:px-6">
               <button
                 type="submit"
                 className="inline-flex justify-center py-1 px-3  shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -62,10 +63,10 @@ const CustomizeAbout = () => {
               </button>
             </div>
           </li>
-          <hr className="min-w-full bg-white my-3 " />
+          <hr className="w-64 bg-white my-3" />
           <li>
             <label className="block pr-5 font-medium text-white text-center">
-            Business Beliefs
+            <MDBIcon icon="briefcase" />&nbsp; Business Beliefs
             </label>
             <form action="/send-data-here" method="post">
               <label
@@ -81,7 +82,7 @@ const CustomizeAbout = () => {
                 id="first-name"
                 placeholder="Owning Pharma Franchise"
                 autoComplete="given-name"
-                className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+                className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
               />
               <label
                 htmlFor="about"
@@ -94,7 +95,7 @@ const CustomizeAbout = () => {
                 id="about"
                 name="about"
                 rows={4}
-                className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-full w-64 sm:text-sm border border-gray-300 rounded-md text-black"
+                className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block  w-64 sm:text-sm border border-gray-300 rounded-md text-black"
                 placeholder="PHARMA BIOTECH PVT.LTD."
                 defaultValue={""}
               />
@@ -106,20 +107,25 @@ const CustomizeAbout = () => {
               </button>
             </form>
           </li>
-          <hr className="min-w-full bg-white my-3 " />
+          <hr className="w-64 bg-white my-3" />
           <li>
             <label className="block pr-5 font-medium text-white text-center">
-            Business Beliefs Cards
+            <MDBIcon
+                 far
+                  icon="address-card"
+                  className="text-white"
+                  size=""
+                />&nbsp; Business Beliefs Cards
             </label>
             <form action="/send-data-here" method="post">
               <label className="block text-sm font-medium text-white">
                 <MDBIcon
-                 
+                 far
                   icon="image"
                   className="text-white"
                   size=""
                 />{" "}
-                &nbsp;Images
+                &nbsp;Image
               </label>
               <div className="mt-1 flex justify-center px-6 pt-2 pb-6 border-2 border-gray-300 border-dashed rounded-md w-64 ">
                 <div className="space-y-1 text-center">
@@ -128,7 +134,7 @@ const CustomizeAbout = () => {
                   <div className="flex text-sm text-gray-600">
                     <label
                       htmlFor="file-upload"
-                      className="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                      className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900  focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                     >
                       <span>Upload a file</span>
                       <input
@@ -157,7 +163,7 @@ const CustomizeAbout = () => {
                 id="first-name"
                 placeholder="Owning Pharma Franchise"
                 autoComplete="given-name"
-                className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+                className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
               />
               <label
                 htmlFor="about"
@@ -170,7 +176,7 @@ const CustomizeAbout = () => {
                 id="about"
                 name="about"
                 rows={4}
-                className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-full w-64 sm:text-sm border border-gray-300 rounded-md text-black"
+                className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-64 sm:text-sm border border-gray-300 rounded-md text-black"
                 placeholder="PHARMA BIOTECH PVT.LTD."
                 defaultValue={""}
               />

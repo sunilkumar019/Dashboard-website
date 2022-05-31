@@ -1,7 +1,7 @@
 import { MDBIcon } from "mdbreact";
  const CustomizeContact = () => {
   return (
-    <div><div className="flex flex-col animated  zoomIn ">
+    <div><div className="flex flex-col animated  slideInLeft ">
     <ul className="space-y-2">
       <li>
         <div>
@@ -98,7 +98,7 @@ import { MDBIcon } from "mdbreact";
           id="first-name"
           placeholder="Owning Pharma Franchise"
           autoComplete="given-name"
-          className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+          className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
         />
         <div className="mr-2 py-2 bg-black text-right sm:px-6">
           <button
@@ -126,7 +126,7 @@ import { MDBIcon } from "mdbreact";
             id="first-name"
             placeholder="Owning Pharma Franchise"
             autoComplete="given-name"
-            className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+            className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block  shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
           />
           <label
             htmlFor="about"
@@ -202,7 +202,7 @@ import { MDBIcon } from "mdbreact";
             id="first-name"
             placeholder="Owning Pharma Franchise"
             autoComplete="given-name"
-            className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+            className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
           />
           <label
             htmlFor="about"
@@ -215,7 +215,7 @@ import { MDBIcon } from "mdbreact";
             id="about"
             name="about"
             rows={4}
-            className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-full w-64 sm:text-sm border border-gray-300 rounded-md text-black"
+            className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-64 sm:text-sm border border-gray-300 rounded-md text-black"
             placeholder="PHARMA BIOTECH PVT.LTD."
             defaultValue={""}
           />
@@ -244,7 +244,7 @@ import { MDBIcon } from "mdbreact";
           id="first-name"
           placeholder=" Make Money in the Pharma"
           autoComplete="given-name"
-          className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+          className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
         />
       </li>
 
@@ -261,7 +261,7 @@ import { MDBIcon } from "mdbreact";
             id="about"
             name="about"
             rows={4}
-            className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-full w-64 sm:text-sm border border-gray-300 rounded-md text-black"
+            className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-64 sm:text-sm border border-gray-300 rounded-md text-black"
             placeholder="PHARMA BIOTECH PVT.LTD."
             defaultValue={""}
           />
