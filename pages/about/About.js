@@ -5,15 +5,19 @@ import Link from "next/link";
 import { CCard, CContainer, CRow, CCol, CCardImg } from 'coreui-next';
 import { MDBIcon } from 'mdbreact';
 import { aboutJson } from '../../data/about/AboutData';
+import { homeJson } from '../../data/home/HomeData';
 
 
 export const getStaticProps = () => {
   return {
     props: {
       manage: aboutJson,
+      
     }
   }
 }
+console.log(aboutJson)
+console.log(homeJson)
 
 const About = ( {manage}) => {
   return (
