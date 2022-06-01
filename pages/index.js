@@ -6,10 +6,50 @@ import { CCard, CCardBody, CCol, CContainer, CRow } from "coreui-next";
 import { CCardTitle } from "@coreui/react";
 import CarouselSlider from "./slider/CarouselSlider";
 import ProductsSlider from "./slider/ProductsSlider";
+import {homeJson}from "../data/home/HomeData";
 
 
 
-const Home = () => {
+export const getStaticProps = () => {
+  return {
+    props: {
+      manage: homeJson,
+      
+    }
+  }
+}
+
+
+// for(var i = 0; i < homeJson.length; i++) {
+//   var obj = homeJson[i];
+// }
+// for (var key in json) {
+// if (homeJson.hasOwnProperty(key)) {
+//   alert(homeJson[key].id);
+//   alert(homeJson[key].msg);
+// }
+// }
+
+
+
+const Home = ({manage}) => {
+   
+  console.log(manage)
+
+
+
+
+//   const [noOfElement, setnoOfElement] = useState(8);
+
+//    const slice = data.slice(0, noOfElement);
+
+
+// // products cat limit
+//      const viewAll = () => {
+
+//     setnoOfElement(noOfElement + noOfElement);
+//   }
+
   return (
     <>
 

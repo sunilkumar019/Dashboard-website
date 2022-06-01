@@ -8,9 +8,20 @@ import {
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 
+import { servicesJson } from "../../data/services/ServicesData";
 
-const Services = () => {
 
+export const getStaticProps = () => {
+  return {
+    props: {
+      manage: servicesJson,
+      
+    }
+  }
+}
+
+const Services = ({manage}) => {
+console.log(manage)
   return (
     <div>
      

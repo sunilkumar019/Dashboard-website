@@ -1,15 +1,28 @@
 import { MDBIcon } from "mdbreact";
+import { aboutJson } from '../../data/about/AboutData';
+import Link from 'next/link'
 
+export const getStaticProps = () => {
+  return {
+    props: {
+      manage: aboutJson,
+    }
+  }
+}
 
-const CustomizeAbout = () => {
+const CustomizeAbout = ({ manage }) => {
   return (
     <div>
-      {" "}
+       <div className="text-center mb-2"><h6 className="text-white">
+        <MDBIcon icon="angle-right" className="text-white" />
+        &nbsp;
+       About</h6>
+      </div>
       <div className="flex flex-col animated  slideInLeft ">
         <ul className="space-y-2">
           <li>
             <label className="block pr-5 font-medium text-white text-center">
-            <MDBIcon icon="bars" className="text-white" size="" />{" "}
+              <MDBIcon icon="bars" className="text-white" size="" />{" "}
               &nbsp;Banner/Text
             </label>
             <label className="block text-sm font-medium text-white">
@@ -50,23 +63,23 @@ const CustomizeAbout = () => {
               type="text"
               name="first-name"
               id="first-name"
-              placeholder="Owning Pharma Franchise"
+              placeholder="Enter your text here... "
               autoComplete="given-name"
-              className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+              className="px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
             />
-            <div className="mr-2 py-2 text-right sm:px-6">
+            {/* <div className="mr-2 py-2 text-right sm:px-6">
               <button
                 type="submit"
                 className="inline-flex justify-center py-1 px-3  shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Save
               </button>
-            </div>
+            </div> */}
           </li>
           <hr className="w-64 bg-white my-3" />
           <li>
             <label className="block pr-5 font-medium text-white text-center">
-            <MDBIcon icon="briefcase" />&nbsp; Business Beliefs
+              <MDBIcon icon="briefcase" />&nbsp; Business Beliefs
             </label>
             <form action="/send-data-here" method="post">
               <label
@@ -80,9 +93,9 @@ const CustomizeAbout = () => {
                 type="text"
                 name="first-name"
                 id="first-name"
-                placeholder="Owning Pharma Franchise"
+                placeholder="Enter your text here... "
                 autoComplete="given-name"
-                className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+                className=" px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
               />
               <label
                 htmlFor="about"
@@ -95,32 +108,32 @@ const CustomizeAbout = () => {
                 id="about"
                 name="about"
                 rows={4}
-                className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block  w-64 sm:text-sm border border-gray-300 rounded-md text-black"
-                placeholder="PHARMA BIOTECH PVT.LTD."
+                className="px-2 shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block  w-64 sm:text-sm border border-gray-300 rounded-md text-black"
+                placeholder="Enter your text here... "
                 defaultValue={""}
               />
-              <button
+              {/* <button
                 type="submit"
                 className="ml-48 inline-flex justify-center py-1 px-3 my-2 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Save
-              </button>
+              </button> */}
             </form>
           </li>
           <hr className="w-64 bg-white my-3" />
           <li>
             <label className="block pr-5 font-medium text-white text-center">
-            <MDBIcon
-                 far
-                  icon="address-card"
-                  className="text-white"
-                  size=""
-                />&nbsp; Business Beliefs Cards
+              <MDBIcon
+                far
+                icon="address-card"
+                className="text-white"
+                size=""
+              />&nbsp; Business Beliefs Cards
             </label>
             <form action="/send-data-here" method="post">
               <label className="block text-sm font-medium text-white">
                 <MDBIcon
-                 far
+                  far
                   icon="image"
                   className="text-white"
                   size=""
@@ -161,9 +174,9 @@ const CustomizeAbout = () => {
                 type="text"
                 name="first-name"
                 id="first-name"
-                placeholder="Owning Pharma Franchise"
+                placeholder="Enter your text here... "
                 autoComplete="given-name"
-                className="my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+                className=" px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
               />
               <label
                 htmlFor="about"
@@ -176,21 +189,21 @@ const CustomizeAbout = () => {
                 id="about"
                 name="about"
                 rows={4}
-                className=" shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-64 sm:text-sm border border-gray-300 rounded-md text-black"
-                placeholder="PHARMA BIOTECH PVT.LTD."
+                className="px-2 shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-64 sm:text-sm border border-gray-300 rounded-md text-black"
+                placeholder="Enter your text here... "
                 defaultValue={""}
               />
-              <button
+              {/* <button
                 type="submit"
                 className="ml-48 inline-flex justify-center py-1 px-3 my-2 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Save
-              </button>
+              </button> */}
             </form>
           </li>
-         
 
-          
+
+
         </ul>
       </div>
     </div>

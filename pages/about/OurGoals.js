@@ -1,10 +1,23 @@
 
 import {  CContainer,CCol, CRow } from "coreui-next";
+import { useState } from "react";
+import { goalCards } from "../../data/ourGoals/Goals";
 
+export const getStaticProps = () => {
 
-const OurGoals = () => {
+  return {
+    props: {
+      manage:goalCards,
+      
+    }
+  }
+}
+const OurGoals = ({manage}) => {
+  
+
   return (
     <div>
+      
       {/*information */}
       <section className="py-5 py-lg-5 ">
         <CContainer>

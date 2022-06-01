@@ -1,9 +1,20 @@
 import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from "coreui-next";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
+import { contactJson } from "../../data/contact/ContactData";
 
 
-const Contact = () => {
+export const getStaticProps = () => {
+  return {
+    props: {
+      manage: contactJson,
+      
+    }
+  }
+}
+
+const Contact = ({manage}) => {
+  console.log(manage)
   return (
     <div>
 
@@ -28,11 +39,11 @@ const Contact = () => {
           <CCardImg
           className='relative h-72 '
             alt="Card image cap"
-            src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
+            src="https://thumbs.dreamstime.com/b/contact-us-banner-suitable-website-header-58969407.jpg"
           
           />
             <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
-              <h1  style={{ fontWeight: "bold", fontSize: "52px" }}>Contact Us</h1>
+              <h1  style={{ fontWeight: "bold", fontSize: "52px" }}></h1>
             </div>
         
         </CCard>

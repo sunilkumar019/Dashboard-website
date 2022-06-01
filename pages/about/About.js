@@ -1,28 +1,40 @@
 
-import React, { useState, useEffect ,Component} from 'react'
+import React, { useState, useEffect, Component } from 'react'
 import OurGoals from './OurGoals'
 import Link from "next/link";
 import { CCard, CContainer, CRow, CCol, CCardImg } from 'coreui-next';
 import { MDBIcon } from 'mdbreact';
 import { aboutJson } from '../../data/about/AboutData';
-import { homeJson } from '../../data/home/HomeData';
+
 
 
 export const getStaticProps = () => {
   return {
     props: {
       manage: aboutJson,
-      
+
     }
   }
 }
-console.log(aboutJson)
-console.log(homeJson)
 
-const About = ( {manage}) => {
+const About = ({ manage }) => {
+
+  var list= function () {
+    for (var i = 0; i < manage.length; i++) {
+
+     
+      console.log(Object.values(manage[i]));
+    }
+    
+}
+useEffect(()=>{
+  list();
+
+},[])
+ 
+
   return (
     <div>
-
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
@@ -40,26 +52,17 @@ const About = ( {manage}) => {
       </section>
 
       <div>
-       {
-         manage.slice(0,1).map((it)=>{
-           return(
-             <>
-              <CCard>
+        <CCard>
           <CCardImg
             className='relative h-72 '
             alt="Card image cap"
-            src={it.url}
+            src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
 
           />
-          <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
-            <h1 style={{ fontWeight: "bold", fontSize: "52px" }}>{it.overlayText}</h1>
+          <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 pr-72 text-black ">
+          <h1 style={{ fontWeight: "bold", fontSize: "52px" }}> </h1>
           </div>
-
         </CCard>
-             </>
-           )
-         })
-       }
       </div>
 
       {/*cards*/}
@@ -71,7 +74,7 @@ const About = ( {manage}) => {
               <h1 className=" h2 text-dark  text-center pb-2"><b>Business<span className="globalColor10"></span></b></h1>
 
               <p className="text-dark text-start">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus praesentium voluptates adipisci tenetur suscipit aut eos corporis sed sit quisquam!
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus praesentium voluptates adipisci tenetur suscipit aut eos corporis sed sit quisquam!
               </p>
             </CCol>
           </CRow>
