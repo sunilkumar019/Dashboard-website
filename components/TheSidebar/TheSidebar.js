@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 import { CContainer, CRow, CCol, } from "coreui-next";
 import { useSelector, useDispatch } from 'react-redux'
-import { selectOption } from '../../store/createSlice';
+import { selectOption } from '../../store/actionReducers/selectSlice';
 import Home from "./Home";
 import About from './About'
 import Services from './Services';
@@ -24,12 +24,12 @@ export const getStaticProps = () => {
 const TheSidebar = ({ manage }) => {
 
   const [visible, setVisible] = useState(false);
-  const [render, setRender] = useState(<Home />);
-  const count = useSelector((state) => state.changed.payload);
+  const [render, setRender] = useState(<Home/>);
   const dispatch = useDispatch();
   const router = useRouter();
-
-
+  
+  
+  const count = useSelector((state) => state.changed.payload);
 
   const handlerChange = (event) => {
 
@@ -46,12 +46,14 @@ const TheSidebar = ({ manage }) => {
     }
 
     else if (event == "about") {
+
       setRender(<About />)
 
       router.push('/about/About')
     }
 
     else if (event == "services") {
+
       setRender(<Services />)
 
       router.push('/services/Services')
@@ -111,7 +113,7 @@ const TheSidebar = ({ manage }) => {
               type="submit"
               className="inline-flex justify-center py-1 px-2 shadow-sm text-sm font-normal rounded text-white bg-green-600 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 text-right ml-48"
             >
-              Pablished
+              Published
             </button>
 
 

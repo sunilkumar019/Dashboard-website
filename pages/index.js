@@ -7,6 +7,7 @@ import { CCardTitle } from "@coreui/react";
 import CarouselSlider from "./slider/CarouselSlider";
 import ProductsSlider from "./slider/ProductsSlider";
 import {homeJson}from "../data/home/HomeData";
+import { goalCards } from "../data/ourGoals/Goals";
 
 
 
@@ -14,13 +15,19 @@ export const getStaticProps = () => {
   return {
     props: {
       manage: homeJson,
+      goal:goalCards
       
     }
   }
 }
 
 
-// for(var i = 0; i < homeJson.length; i++) {
+
+
+
+const Home = ({manage,goal}) => {
+
+  // for(var i = 0; i < homeJson.length; i++) {
 //   var obj = homeJson[i];
 // }
 // for (var key in json) {
@@ -30,13 +37,7 @@ export const getStaticProps = () => {
 // }
 // }
 
-
-
-const Home = ({manage}) => {
-   
-  console.log(manage)
-
-
+ 
 
 
 //   const [noOfElement, setnoOfElement] = useState(8);
@@ -49,6 +50,9 @@ const Home = ({manage}) => {
 
 //     setnoOfElement(noOfElement + noOfElement);
 //   }
+
+ 
+
 
   return (
     <>
@@ -347,7 +351,7 @@ const Home = ({manage}) => {
 
       {/*information */}
       <section>
-        <OurGoals />
+        <OurGoals  />
       </section>
 
       {/*products details */}

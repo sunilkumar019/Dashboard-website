@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const counterSlice = createSlice({
+export const selectSlice = createSlice({
  
   name: 'select',
   initialState: {
@@ -8,12 +8,13 @@ export const counterSlice = createSlice({
   },
   reducers: {
     selectOption: (state, action) => {
-      state.value==action.payload.selectedOption
+      state.value==action.payload.selectOption
      
     },
+   
   },
  
 })
-export const { selectOption } = counterSlice.actions
+export const { selectOption } = selectSlice.actions
 
-export default counterSlice.reducer;
+export default selectSlice.reducer;

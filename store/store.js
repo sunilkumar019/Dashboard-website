@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import createSlice from './createSlice';
+import selectSlice from "./actionReducers/selectSlice";
+import servicesData from './actionReducers/manageData';
 
 export default configureStore({
   reducer: {
-    changed:createSlice,
+    changed:selectSlice,
+    adding:servicesData
   },
 })
 

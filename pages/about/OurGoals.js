@@ -3,22 +3,26 @@ import {  CContainer,CCol, CRow } from "coreui-next";
 import { useState } from "react";
 import { goalCards } from "../../data/ourGoals/Goals";
 
-export const getStaticProps = () => {
+// export const getStaticProps = () => {
 
-  return {
-    props: {
-      manage:goalCards,
+//   return {
+//     props: {
+//       manage:goalCards,
       
-    }
-  }
-}
-const OurGoals = ({manage}) => {
+//     }
+//   }
+// }
+const OurGoals = ( ) => {
   
-
+ 
   return (
     <div>
       
+   
+      
+     
       {/*information */}
+     
       <section className="py-5 py-lg-5 ">
         <CContainer>
           <CRow className="g-xl-0 align-items-center ">
@@ -30,15 +34,15 @@ const OurGoals = ({manage}) => {
               </div>
             </CCol>
             <CCol md={9} className="text-start order-md-0">
-              <h1 className="h3 globaltext1 lh-base"><b>Our Vision</b></h1>
+              <h1 className="h3 globaltext1 lh-base"><b> </b></h1>
               <hr className="text-dark mx-auto mx-md-0" style={{ height: "0px", width: "0px" }} />
-              <p >Our dedicated patient engagement app and web portal allow you to access information instantaneously (no tedeous form, long calls, or administrative hassle) and securely</p>
+              <p >Jassa provides progressive, and affordable healthcare, accessible on mobile and online for everyone. To us, it’s not just work. We take pride in the solutions we deliver </p>
 
             </CCol>
           </CRow>
         </CContainer>
       </section>
-
+      
       <section className="py-6 py-lg-8" id="about">
         <div className="bg-holder dotbg2"></div>
 

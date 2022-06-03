@@ -1,22 +1,22 @@
 export const goalCards = [{
 
     id: 1,
-    heading: " Quality",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit,",
+    heading: " Our Vision",
+    text: "Our dedicated patient engagement app and web portal allow you to access information instantaneously (no tedeous form, long calls, or administrative hassle) and securely,",
     url: "https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
 
 },
 {
     id:2,
-    heading: "Quality",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit,",
+    heading: "Our Mission",
+    text: "Jassa provides progressive, and affordable healthcare, accessible on mobile and online for everyone. To us, it’s not just work. We take pride in the solutions we deliver,",
     url: "https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
 
 }, {
 
     id: 3,
-    heading: "About Us",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit,",
+    heading: "Products Detail",
+    text: " Our dedicated patient engagement app and web portal allow you to access information instantaneously (no tedeous form, long calls, or administrative hassle) and securely",
     url: "https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
 
 }

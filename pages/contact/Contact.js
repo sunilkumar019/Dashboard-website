@@ -14,7 +14,7 @@ export const getStaticProps = () => {
 }
 
 const Contact = ({manage}) => {
-  console.log(manage)
+  
   return (
     <div>
 
