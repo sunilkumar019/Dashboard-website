@@ -2,7 +2,19 @@ import Carousel from "react-multi-carousel";
 import { CCard, CCardBody } from '@coreui/react'
 import Link from "next/link";
 import { CContainer } from "coreui-next";
+import {homeJson}from '../../data/home/HomeData';
 
+
+
+export const getStaticProps = () => {
+  return {
+    props: {
+      manage: homeJson,
+      
+    }
+  }
+}
+// console.log(homeJson)
 
 const CarouselSlider = () => {
     const responsive = {
@@ -62,46 +74,3 @@ export default CarouselSlider;
 
 
 
-// import { Row, Col, Container, UncontrolledCarousel } from "reactstrap";
-
-// const CarouselSlider = () => {
-//   const items = [
-//     {
-//       src:"https://www.pharmahopers.com/assets/images/pharma-franchise-banner.jpg",
-//       altText: "Slide 1",
-//       caption: "",
-//       header: "",
-//       key: "1",
-//     },
-//     {
-//       src:"https://www.pharmahopers.com/assets/images/pharma-franchise-banner.jpg",
-//       altText: "Slide 2",
-//       caption: "",
-//       header: "",
-//       key: "2",
-//     },
-//     {
-//       src:"https://www.pharmahopers.com/assets/images/pharma-franchise-banner.jpg",
-//       altText: "Slide 3",
-//       caption: "",
-//       header: "",
-//       key: "3",
-//     },
-//   ];
-  
-  
-//   return (
-//     <div>
-//       <Container fluid >
-//         <Row>
-//           <Col md="12" className="mx-auto">
-//             <UncontrolledCarousel items={items} />
-//           </Col>
-//         </Row>
-//       </Container>
-
-//     </div>
-//   )
-// }
-
-// export default CarouselSlider;

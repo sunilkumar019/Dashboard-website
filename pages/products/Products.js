@@ -16,22 +16,22 @@ const Products = () => {
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
-          
-          <Link href="#">
-          <a className="phone"><i className="fa fa-phone "></i></a>
+
+          <Link href="/">
+            <a className="phone"><MDBIcon icon="phone"/></a>
           </Link>
-          <Link href="#">
-          <a className="facebook"><i className="fab fa-facebook-f fa-md fa-fw"></i></a>
+          <Link href="/">
+            <a className="facebook"><MDBIcon fab icon="whatsapp"/></a>
           </Link>
-         <Link href="#">
-         <a className="email"><i className="fa fa-envelope "></i></a>
-         </Link>
+          <Link href="/">
+            <a className="email"><MDBIcon icon="envelope"/></a>
+          </Link>
         </div>
       </section>
 
       
       <section >
-        <CContainer fluid className="py-3 hero-header globalColor1 ">
+        <CContainer fluid className="py-3 hero-header bg-gradient-to-r from-rose-500 to-rose-900 ">
           <CRow>
             <div className="col-12 text-center">
               <h1 className="h2 text-white animated zoomIn">Our Products</h1>

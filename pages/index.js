@@ -1,15 +1,59 @@
 
-
+import { MDBIcon } from "mdbreact";
 import Link from "next/link";
 import OurGoals from "./about/OurGoals";
 import { CCard, CCardBody, CCol, CContainer, CRow } from "coreui-next";
 import { CCardTitle } from "@coreui/react";
 import CarouselSlider from "./slider/CarouselSlider";
 import ProductsSlider from "./slider/ProductsSlider";
+import {homeJson}from "../data/home/HomeData";
+import { goalCards } from "../data/ourGoals/Goals";
 
 
 
-const Home = () => {
+export const getStaticProps = () => {
+  return {
+    props: {
+      manage: homeJson,
+      goal:goalCards
+      
+    }
+  }
+}
+
+
+
+
+
+const Home = ({manage,goal}) => {
+
+  // for(var i = 0; i < homeJson.length; i++) {
+//   var obj = homeJson[i];
+// }
+// for (var key in json) {
+// if (homeJson.hasOwnProperty(key)) {
+//   alert(homeJson[key].id);
+//   alert(homeJson[key].msg);
+// }
+// }
+
+ 
+
+
+//   const [noOfElement, setnoOfElement] = useState(8);
+
+//    const slice = data.slice(0, noOfElement);
+
+
+// // products cat limit
+//      const viewAll = () => {
+
+//     setnoOfElement(noOfElement + noOfElement);
+//   }
+
+ 
+
+
   return (
     <>
 
@@ -17,14 +61,14 @@ const Home = () => {
       <section>
         <div className="icon-Homebar">
 
-          <Link href="#">
-            <a className="phone"><i className="fa fa-phone "></i></a>
+          <Link href="/">
+            <a className="phone"><MDBIcon icon="phone"/></a>
           </Link>
-          <Link href="#">
-            <a className="facebook"><i className="fab fa-facebook-f fa-md fa-fw"></i></a>
+          <Link href="/">
+            <a className="facebook"><MDBIcon fab icon="whatsapp"/></a>
           </Link>
-          <Link href="#">
-            <a className="email"><i className="fa fa-envelope "></i></a>
+          <Link href="/">
+            <a className="email"><MDBIcon icon="envelope"/></a>
           </Link>
         </div>
       </section>
@@ -307,7 +351,7 @@ const Home = () => {
 
       {/*information */}
       <section>
-        <OurGoals />
+        <OurGoals  />
       </section>
 
       {/*products details */}
