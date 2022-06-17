@@ -1,9 +1,4 @@
 export const aboutJson = [
-    {
-        id: 1,
-        overlayText: "About Us",
-
-    },
 
     {
         id: 2,

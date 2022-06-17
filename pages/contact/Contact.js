@@ -2,6 +2,7 @@ import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from 
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 import { contactJson } from "../../data/contact/ContactData";
+import { useEffect } from "react";
 
 
 export const getStaticProps = () => {
@@ -14,7 +15,8 @@ export const getStaticProps = () => {
 }
 
 const Contact = ({manage}) => {
-  
+
+   
   return (
     <div>
 
@@ -42,9 +44,9 @@ const Contact = ({manage}) => {
             src="https://thumbs.dreamstime.com/b/contact-us-banner-suitable-website-header-58969407.jpg"
           
           />
-            <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
+            {/* <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
               <h1  style={{ fontWeight: "bold", fontSize: "52px" }}></h1>
-            </div>
+            </div> */}
         
         </CCard>
       </div>
@@ -63,7 +65,7 @@ const Contact = ({manage}) => {
                   <strong>Our Location</strong>
                 </CCardTitle>
                 <CCardText>
-                  <a className="globaltext1" href="#" >abc</a>
+                  <Link href="#"><a className="globaltext1">abc</a></Link>
                 </CCardText>
 
               </CCard>
@@ -75,7 +77,7 @@ const Contact = ({manage}) => {
                   <strong>Contact Us Anytime</strong>
                 </CCardTitle>
                 <CCardText>
-                  <a className="globaltext1" href="">+9876543210</a>
+                 <Link  href=""><a className="globaltext1">+9876543210</a></Link>
                 </CCardText>
 
               </CCard>
@@ -87,7 +89,7 @@ const Contact = ({manage}) => {
                   <strong>Write Some Words</strong>
                 </CCardTitle>
                 <CCardText>
-                  <a className="globaltext1" href="">amlrgg@gmail.com</a>
+                 <Link href=""><a className="globaltext1" >amlrgg@gmail.com</a></Link>
                 </CCardText>
 
               </CCard>

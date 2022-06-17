@@ -4,24 +4,21 @@ import { servicesJson } from '../../data/services/ServicesData';
 export const manageData = createSlice({
 
     name: 'servcie',
-    initialState:
-        {
-            heading:"",
-           
-        }
-,
+    initialState: [],
+
     reducers: {
         showServices: (state, action) => {
-            state.services =[...state.services]
+            state.services = [...state.services]
 
         },
-      addServices:(state,action)=>{
-        state.heading==action.payload.addServices
-      }
+
+        addServices: (state, action) => {
+            state.push(action.payload)
+        }
 
     },
 
 })
-export const { addServices } = manageData.actions
+export const { addServices, showServices } = manageData.actions
 
 export default manageData.reducer;

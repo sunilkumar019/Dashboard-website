@@ -8,9 +8,7 @@ import Link from "next/link";
 
 
 const Products = () => {
-
-
-
+ 
   return (
     <div>
       {/* Sticky Social Bar */}
@@ -36,7 +34,7 @@ const Products = () => {
             <div className="col-12 text-center">
               <h1 className="h2 text-white animated zoomIn">Our Products</h1>
               <Link href="/">
-                <a className="h6 text-white">Home</a>
+                <a className="h6 text-white ">Home</a>
               </Link>
               &nbsp; &nbsp;
               <MDBIcon icon="angle-right" className="text-white" />

@@ -7,7 +7,7 @@ const TheFooter = () => {
 
         <CFooter id="tempaltemo_footer" style={{ backgroundColor: "#292B33" }}>
             <CContainer style={{ backgroundColor: "#292B33" }} >
-                <CRow style={{ paddingTop: "40px" }}>
+                 <CRow style={{ paddingTop: "40px" }}>
                     <div className="col-lg-3 col-md-6 col-12 pt-5 mt-4 text-light">
                         <img className=' rounded animated pulse slower infinite' src='https://www.dexonbiotech.com/wp-content/uploads/2022/03/dexon_logo1.jpg' alt="" height={100} width={220} /> <br /> <br />
                         <div className="row">
@@ -74,7 +74,7 @@ const TheFooter = () => {
                         </ul>
                     </div>
 
-                </CRow>
+                </CRow>  
 
             </CContainer>
 

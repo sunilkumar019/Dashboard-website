@@ -64,6 +64,7 @@ const TheHeader = () => {
         </button>
         <div className="collapse navbar-collapse mx-5" id="navbarCollapse">
           <div className="navbar-nav  ms-auto ">
+            
             <Link href="/">
               <a className="nav-item border-end nav-link  px-4">Home</a>
             </Link>

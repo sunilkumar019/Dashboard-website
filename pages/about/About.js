@@ -4,37 +4,54 @@ import OurGoals from './OurGoals'
 import Link from "next/link";
 import { CCard, CContainer, CRow, CCol, CCardImg } from 'coreui-next';
 import { MDBIcon } from 'mdbreact';
-import { aboutJson } from '../../data/about/AboutData';
-import { goalCards } from '../../data/ourGoals/Goals';
+
+import { useGetPokemonByNameQuery, useUpdatePostMutation } from "../../store/actionReducers/aboutSlice";
+import { data } from 'autoprefixer';
 
 
 
-export const getStaticProps = () => {
-  return {
-    props: {
-      manage: aboutJson,
+// export const getStaticProps = () => {
+//   return {
+//     props: {
+//       manage: aboutJson,
 
-    }
-  }
-}
+//     }
+//   }
+// }
 
-const About = ({ manage }) => {
+const About = () => {
 
-  // const text = [];
 
-  // let i = 0;
-  // let len = manage.length;
-  // for (; i < len; i++) {
-  //   text.push(manage[i])
-  // }
+  const {  currentData } = useGetPokemonByNameQuery()
+  var a =currentData
+  var b = null;
+  var c = undefined;
+
+
+  var state = a &&b && c  
+
+
+  console.log(a)
+
+
+  //   useEffect(() => {
+  //     const fetching=async()=>{
+  //     const res = await fetch("/api/about")
+  //     const result = await res.json()
+  //     setData(result)s
+  //     console.log(result)
+  //     }
+  //     fetching();
+  //   },[]);
+  // console.log(res)
 
   return (
     <div>
+    
 
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
-
           <Link href="/">
             <a className="phone"><MDBIcon icon="phone" /></a>
           </Link>
@@ -47,16 +64,18 @@ const About = ({ manage }) => {
         </div>
       </section>
 
+
       <div>
         <CCard>
+       
           <CCardImg
             className='relative h-72 '
             alt="Card image cap"
             src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
           />
-          <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 pr-72 text-white " >
+          {/* <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 pr-72 text-white " >
             <h1 style={{ fontWeight: "bold", fontSize: "52px" }}>About Us</h1>
-          </div>
+          </div> */}
 
         </CCard>
       </div>
@@ -66,16 +85,14 @@ const About = ({ manage }) => {
         <CContainer className="mb-4">
           <CRow>
 
-
             <CCol md={12} className="mt-4">
 
-              <h1 className=" h2 text-dark  text-center pb-2"><b>Belif<span className="globalColor10"></span></b></h1>
+              <h1 className=" h2 text-dark  text-center pb-2"><b><span className="globalColor10"></span></b></h1>
 
               <p className="text-dark text-start">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum non eius quisquam laboriosam officiis, perspiciatis nobis optio molestias consequuntur ducimus?
+
               </p>
             </CCol>
-
 
           </CRow>
         </CContainer>

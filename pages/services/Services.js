@@ -8,7 +8,9 @@ import {
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 import { servicesJson } from "../../data/services/ServicesData";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addServices } from "../../store/actionReducers/manageData";
+import { useEffect, useState } from "react";
 
 
 
@@ -22,9 +24,34 @@ import { useSelector } from "react-redux";
 // }
 
 const Services = () => {
-  const adding = useSelector((state) => state.adding.payload);
 
-  console.log(adding)
+ 
+  const fetching = async () => {
+    //   const res = await fetch("http://localhost:3002/api/web/customizehome/get")
+    //   const result = await res.json()
+    //   console.log(result)
+    // let optionData = {
+    //   method: "POST",
+    //   Headers: {'Content-Type':'application/json'},
+    //   body: JSON.stringify({
+    //     heading: "i am",
+    //     text: "lorem djg the is you"
+    //   })
+    // }
+ 
+  //  await fetch('http://localhost:3002/api/web/customizeAbout/add',{
+  //     method: 'POST',
+  //     headers: {'Content-Type': 'application/json'},
+  //    body: JSON.stringify( {heading:"successfully",
+  //    text:"  successfullyht ", image:"tyyty"}),
+  //   })
+ 
+  }
+
+  
+  
+
+  const counting = useSelector((state) => state.adding);
 
   return (
     <div>
@@ -46,47 +73,56 @@ const Services = () => {
         </div>
       </section>
 
+
       <div>
+
         <CCard>
           <CCardImg
             className='relative h-72 '
             alt="Card image cap"
-            src=""
+            src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
 
           />
-          <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 px-56 text-black ">
+          {/* <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 px-56 text-black ">
             <h1 style={{ fontWeight: "bold", fontSize: "52px" }}>Services</h1>
-          </div>
+          </div> */}
 
         </CCard>
       </div>
 
       {/*sevices*/}
-      
-           
-             <div>
-               
-                <section >
-              <CContainer className="my-5">
-                <CRow>
 
-                  <CCol md={12}  >
-                    <h1  className=" h3 text-dark  text-start pb-2">
-                      <b >
-                         {adding}</b>
-                    </h1>
 
-                    <p className="text-dark text-start"   >
-                 
-                    </p>
-                  </CCol>
+      <div>
 
-                </CRow>
-              </CContainer>
-            </section>
-               </div>
-          
-           
+        {/* {
+          counting.map((item) => {
+            return (<> */}
+        <section >
+          <CContainer className="my-5">
+            <CRow>
+
+              <CCol md={12}  >
+                <h1 className=" h3 text-dark  text-start pb-2">
+                  <b >
+
+                  </b>
+                </h1>
+
+                <p className="text-dark text-start"   >
+                  {counting}
+                </p>
+              </CCol>
+
+            </CRow>
+          </CContainer>
+        </section>
+        {/* </>)
+          })
+        } */}
+      </div>
+
+
       {/* <section>
         <CContainer className="mb-2">
           <CRow>

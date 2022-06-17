@@ -1,5 +1,5 @@
 import { CSidebar } from "@coreui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 import { CContainer, CRow, CCol, } from "coreui-next";
@@ -27,11 +27,12 @@ const TheSidebar = ({ manage }) => {
   const [render, setRender] = useState(<Home/>);
   const dispatch = useDispatch();
   const router = useRouter();
-  
+
+
   
   const count = useSelector((state) => state.changed.payload);
-
   const handlerChange = (event) => {
+  
 
     const payload = { selectOption: event }
     dispatch(selectOption(payload))
@@ -60,6 +61,8 @@ const TheSidebar = ({ manage }) => {
     }
 
   };
+
+
 
   // toggle
   const toggle = () => {
