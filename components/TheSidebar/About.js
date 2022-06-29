@@ -1,46 +1,28 @@
 import { MDBIcon } from "mdbreact";
-import { aboutJson } from '../../data/about/AboutData';
-import Link from 'next/link'
-import { useState, useEffect } from "react";
-import { useGetPokemonByNameQuery ,useUpdatePostMutation} from "../../store/actionReducers/aboutSlice";
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchAll,updatePut } from "../../store/actionReducers/aboutSlice";
+import { useState } from "react";
+import { useFetchTasksQuery, useCreateTaskMutation, useDeleteTaskMutation, useUpdateTaskMutation } from "../../store/actionReducers/aboutSlice";
+import { useMemo } from "react";
 
 
+const CustomizeAbout = () => {
 
-const CustomizeAbout = ({ manage }) => {
+  const [heading, setHeading] = useState("");
+  const [text, setText] = useState("");
+  const { data  } = useFetchTasksQuery();
+  //const [updateTask] = useUpdateTaskMutation();
+  const [deleteTask] = useDeleteTaskMutation();
+  const [createTask] = useCreateTaskMutation();
 
-//   const dispatch =useDispatch();
-  
-//  const dis =dispatch(fetchAll( ))
-//    console.log(dis)
-  // const [heading, setHeading] = useState('');
-  // const [text, setText] = useState("")
-
- 
-
-// const updateData={
-//    id:"62a316ce2626554088e01ef9",
-//   heading:"hello",
-//   text:"hii hhhhhh",
-//   image:"imageo overlay"
-// }
-
-  // const updateAbout = async () => {
-
-  //   const res = await fetch(`api/update`,{
-  //     method:"PUT", headers: {
-  //       'Content-Type': 'application/json'
-  //     }, body: JSON.stringify({id:"62a318142626554088e01f01",heading:"hey",text:"hello"})
-  //   });
-  //   const val= await res.json();
-    
-  //         console.log(val)
-  // }
-
-  // useEffect(() => {
-  //   updateAbout()
-  // }, []);
+  const handleCreateTask = async (event) => {
+    event.preventDefault();
+    await createTask({
+      heading: heading,
+      text: text
+    }).unwrap();
+    setHeading("");
+    setText("")
+  };
+  console.log(data)
 
   return (
     <div>
@@ -49,10 +31,59 @@ const CustomizeAbout = ({ manage }) => {
         &nbsp;
         About</h6>
       </div>
-   
+
       <div className="flex flex-col animated  slideInLeft ">
+        {/* {hasTasks && ( */}
         <ul className="space-y-2">
-          <form action=" " method="post"  >
+          <form >
+            <li >
+
+              <label
+                htmlFor="about"
+                className="block text-sm font-medium text-white">
+
+                <MDBIcon far icon="edit" className="text-white" />
+                &nbsp; Heading
+              </label>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+
+                value={heading}
+                onChange={({ target }) => setHeading(target.value)}
+                placeholder="Enter your text here... "
+                autoComplete="given-name"
+                className=" px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+              />
+              <label
+                htmlFor="about"
+                className="block text-sm font-medium text-white"
+              >
+
+                <MDBIcon far icon="edit" className="text-white" />
+                &nbsp; Text
+              </label>
+              <textarea
+                id="about"
+                name="about"
+                value={text}
+                onChange={({ target }) => setText(target.value)}
+
+                rows={4}
+                className="px-2 shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block  w-64 sm:text-sm border border-gray-300 rounded-md text-black"
+                placeholder="Enter your text here... "
+
+              />
+              <button
+                type="submit"
+                className="  inline-flex justify-center py-1 px-28 my-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                onClick={handleCreateTask}>
+                add
+              </button>
+
+
+            </li>
             <li>
               <label className="block pr-5 font-medium text-white text-center">
                 <MDBIcon icon="bars" className="text-white" size="" />{" "}
@@ -62,9 +93,6 @@ const CustomizeAbout = ({ manage }) => {
                 <MDBIcon far icon="image" className="text-white" size="" />{" "}
                 &nbsp;Image
               </label>
-              {/* <button className="text-light" onClick={()=>{updatePost(updateData)}}>click</button> */}
-             
-
               <div className="mt-1 flex justify-center px-6 pt-2 pb-6 border-2 border-gray-300 border-dashed rounded-md w-64 ">
                 <div className="space-y-1 text-center">
                   <MDBIcon icon="image" className="text-white" size="2x" />
@@ -75,12 +103,11 @@ const CustomizeAbout = ({ manage }) => {
                       className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900  focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                     >
                       <span>Upload a file</span>
-                      <input
+                      // <input
                         id="file-upload"
                         name="file-upload"
                         type="file"
-                       
-                      
+
                         className="sr-only"
                       />
                     </label>
@@ -101,9 +128,6 @@ const CustomizeAbout = ({ manage }) => {
                 type="text"
                 name="text1"
                 id=" text1"
-                
-                required
-
                 placeholder="Enter your text here... "
                 autoComplete="given-name"
                 className="px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
@@ -111,51 +135,65 @@ const CustomizeAbout = ({ manage }) => {
 
             </li>
             <hr className="w-64 bg-white my-3" />
-            <li>
+
+
+            <li >
               <label className="block pr-5 font-medium text-white text-center">
                 <MDBIcon icon="briefcase" />&nbsp; Business Beliefs
               </label>
+              {data && data.data.map((task) => (
+                <>
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium text-white">
 
-              <label
-                htmlFor="about"
-                className="block text-sm font-medium text-white"
-              >
-                <MDBIcon far icon="edit" className="text-white" />
-                &nbsp; Heading
-              </label>
-              <input
-                type="text"
-                name="first-name"
-                id="first-name"
-                required
+                    <MDBIcon far icon="edit" className="text-white" />
+                    &nbsp; Heading
+                  </label>
+                  <input
+                    type="text"
+                    name="first-name"
+                    id={task._id}
+                    required
+                    defaultValue={task.heading}
+                  //  onChange={({ target }) => setHeading(target.value)}
+                    placeholder="Enter your text here... "
+                    autoComplete="given-name"
+                    className=" px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
+                  />
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium text-white"
+                  >
 
-                placeholder="Enter your text here... "
-                autoComplete="given-name"
-                className=" px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
-              />
-              <label
-                htmlFor="about"
-                className="block text-sm font-medium text-white"
-              >
-                <MDBIcon far icon="edit" className="text-white" />
-                &nbsp; Text
-              </label>
-              <textarea
-                id="about"
-                name="about"
-                required
+                    <MDBIcon far icon="edit" className="text-white" />
+                    &nbsp; Text
+                  </label>
+                  <textarea
+                    id={task._id}
+                    name="about"
+                    defaultValue={task.text}
+                    //onChange={({ target }) => setText(target.value)}
 
+                    rows={4}
+                    className="px-2 shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block  w-64 sm:text-sm border border-gray-300 rounded-md text-black"
+                    placeholder="Enter your text here... "
 
-                rows={4}
-                className="px-2 shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block  w-64 sm:text-sm border border-gray-300 rounded-md text-black"
-                placeholder="Enter your text here... "
-                defaultValue={""}
-              />
-
+                  />
+                  <button
+                    type="button"
+                    className="  inline-flex justify-center py-1 px-28 my-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    onClick={() => deleteTask(task._id)}  >
+                    Delete
+                  </button>
+                </>
+              ))}
 
             </li>
+
+
             <hr className="w-64 bg-white my-3" />
-            <li>
+            {/* <li>
               <label className="block pr-5 font-medium text-white text-center">
                 <MDBIcon
                   far
@@ -208,12 +246,12 @@ const CustomizeAbout = ({ manage }) => {
                 type="text"
                 name="first-name"
                 id="first-name"
-                required
-
+               
                 placeholder="Enter your text here... "
                 autoComplete="given-name"
                 className=" px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
               />
+            
               <label
                 htmlFor="about"
                 className="block text-sm font-medium text-white"
@@ -225,22 +263,23 @@ const CustomizeAbout = ({ manage }) => {
                 id="about"
                 name="about"
                 rows={4}
-                required
+              
 
                 className="px-2 shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-64 sm:text-sm border border-gray-300 rounded-md text-black"
                 placeholder="Enter your text here... "
                 defaultValue={""}
               />
-            </li>
-            <hr className="w-64 bg-white my-3" />
-            <button
+            </li> */}
+            {/* <hr className="w-64 bg-white my-3" /> */}
+            {/* <button
               type="submit"
               className="  inline-flex justify-center py-1 px-28 my-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
+               >
               Save
-            </button>
+            </button> */}
           </form>
         </ul>
+        {/* )} */}
       </div>
     </div>
   );

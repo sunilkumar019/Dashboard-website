@@ -2,19 +2,11 @@ import Carousel from "react-multi-carousel";
 import { CCard, CCardBody } from '@coreui/react'
 import Link from "next/link";
 import { CContainer } from "coreui-next";
-import {homeJson}from '../../data/home/HomeData';
+ 
 
 
 
-export const getStaticProps = () => {
-  return {
-    props: {
-      manage: homeJson,
-      
-    }
-  }
-}
-// console.log(homeJson)
+
 
 const CarouselSlider = () => {
     const responsive = {

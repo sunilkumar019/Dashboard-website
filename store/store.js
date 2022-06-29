@@ -1,19 +1,39 @@
 import { configureStore } from '@reduxjs/toolkit';
 import selectSlice from "./actionReducers/selectSlice";
-import servicesData from './actionReducers/manageData';
-import { setupListeners } from '@reduxjs/toolkit/query'
-import { pokemonApi } from './actionReducers/aboutSlice'
- 
 
-export const store = configureStore({
+import { setupListeners } from '@reduxjs/toolkit/query'
+import { api } from './actionReducers/aboutSlice'
+import { servicesApi } from './actionReducers/servicesSlice';
+import { persistReducer, persistStore , FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,} from 'redux-persist';
+ import storage from 'redux-persist/lib/storage';
+
+ const persistConfig = {
+  key: 'root',
+  storage,
+}
+
+const persistedReducer = persistReducer(persistConfig,selectSlice)
+
+export const store = configureStore({ 
   reducer: {
-    [pokemonApi.reducerPath]: pokemonApi.reducer,
     changed:selectSlice,
-    adding:servicesData,
-    
+    [api.reducerPath]: api.reducer,
+    [servicesApi.reducerPath]: servicesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(pokemonApi.middleware),
+  getDefaultMiddleware().concat(api.middleware),
+
+  middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware().concat(servicesApi.middleware),
+  
+ 
 })
 
-setupListeners(store.dispatch)
+setupListeners(store.dispatch);
+
+export const persistor = persistStore(store)

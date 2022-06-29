@@ -16,11 +16,10 @@ export default function TheLayout({ children }) {
 
 {/* layout */}
       <TheSidebar />
-      <div>
         <TheHeader />
         <main>{children}</main>
         <TheFooter />
-      </div>
+    
     </div>
   );
 }

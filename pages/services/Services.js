@@ -7,56 +7,26 @@ import {
 } from "coreui-next";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
-import { servicesJson } from "../../data/services/ServicesData";
-import { useDispatch, useSelector } from "react-redux";
-import { addServices } from "../../store/actionReducers/manageData";
-import { useEffect, useState } from "react";
+import {NotificationContainer} from 'react-notifications';
+import { useFetchTasksQuery} from "../../store/actionReducers/servicesSlice";
 
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch(`http://localhost:3002/api/web/customizeservices/get`)
+//   const data = await res.json()
 
-
-// export const getStaticProps = () => {
-//   return {
-//     props: {
-//       manage: servicesJson,
-
-//     }
-//   }
+//   // Pass data to the page via props
+//   return { props: { data } }
 // }
 
+
+
+
 const Services = () => {
-
- 
-  const fetching = async () => {
-    //   const res = await fetch("http://localhost:3002/api/web/customizehome/get")
-    //   const result = await res.json()
-    //   console.log(result)
-    // let optionData = {
-    //   method: "POST",
-    //   Headers: {'Content-Type':'application/json'},
-    //   body: JSON.stringify({
-    //     heading: "i am",
-    //     text: "lorem djg the is you"
-    //   })
-    // }
- 
-  //  await fetch('http://localhost:3002/api/web/customizeAbout/add',{
-  //     method: 'POST',
-  //     headers: {'Content-Type': 'application/json'},
-  //    body: JSON.stringify( {heading:"successfully",
-  //    text:"  successfullyht ", image:"tyyty"}),
-  //   })
- 
-  }
-
-  
-  
-
-  const counting = useSelector((state) => state.adding);
-
+   const { data } = useFetchTasksQuery();
   return (
     <div>
-
-
+      <NotificationContainer/>
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
@@ -95,31 +65,31 @@ const Services = () => {
 
       <div>
 
-        {/* {
-          counting.map((item) => {
-            return (<> */}
-        <section >
-          <CContainer className="my-5">
-            <CRow>
+        {
+           data&&data.data.map((item,i) => {
+            return (<div key={i}>
+              <section >
+                <CContainer className="my-5">
+                  <CRow>
 
-              <CCol md={12}  >
-                <h1 className=" h3 text-dark  text-start pb-2">
-                  <b >
+                    <CCol md={12}  >
+                      <h1 className=" h3 text-dark  text-start pb-2">
+                        <b >
+                          {item.heading}
+                        </b>
+                      </h1>
 
-                  </b>
-                </h1>
+                      <p className="text-dark text-start"   >
+                      {item.text}
+                      </p>
+                    </CCol>
 
-                <p className="text-dark text-start"   >
-                  {counting}
-                </p>
-              </CCol>
-
-            </CRow>
-          </CContainer>
-        </section>
-        {/* </>)
+                  </CRow>
+                </CContainer>
+              </section>
+            </div>)
           })
-        } */}
+        }
       </div>
 
 

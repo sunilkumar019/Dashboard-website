@@ -269,7 +269,7 @@ justify-content: center;
   position: relative;
   overflow: hidden;
   width: 260px;
-  min-height:330px;
+  height:330px;
   margin: 0 auto;
   background: #fff;
   box-sizing: border-box;

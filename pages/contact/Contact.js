@@ -1,7 +1,7 @@
 import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from "coreui-next";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
-import { contactJson } from "../../data/contact/ContactData";
+
 import { useEffect } from "react";
 
 

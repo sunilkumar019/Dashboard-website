@@ -1,4 +1,4 @@
-import { CSidebar } from "@coreui/react";
+import { CSidebar, CPopover, CButton, CBadge } from "@coreui/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
@@ -8,8 +8,9 @@ import { selectOption } from '../../store/actionReducers/selectSlice';
 import Home from "./Home";
 import About from './About'
 import Services from './Services';
-import { aboutJson } from "../../data/about/AboutData";
+
 import { useRouter } from "next/router";
+
 
 
 
@@ -24,15 +25,15 @@ export const getStaticProps = () => {
 const TheSidebar = ({ manage }) => {
 
   const [visible, setVisible] = useState(false);
-  const [render, setRender] = useState(<Home/>);
+  const [render, setRender] = useState(<Home />);
   const dispatch = useDispatch();
   const router = useRouter();
 
 
-  
+
   const count = useSelector((state) => state.changed.payload);
   const handlerChange = (event) => {
-  
+
 
     const payload = { selectOption: event }
     dispatch(selectOption(payload))
@@ -127,6 +128,15 @@ const TheSidebar = ({ manage }) => {
                 <h5 className="text-white ">Pharma</h5>{" "}
               </a>
             </Link>
+            <span className="ml-72" ><CPopover
+
+              content="Pharma industry we came to analyze that the market area of this industry is very vast. But due to mismanagement, lack of enough resources, or less online awareness of pharmaceutical firms cause damage in terms of sales as well as other branding things. Here is the list of problems which are analyzed by us"
+              placement="right" >
+              <CBadge className="border border-light     " color="muted" shape="rounded-circle">
+              <MDBIcon icon="info" />
+              </CBadge>
+            </CPopover></span>
+
             <hr className="min-w-full bg-white " />
 
 

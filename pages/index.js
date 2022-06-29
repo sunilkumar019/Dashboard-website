@@ -6,20 +6,18 @@ import { CCard, CCardBody, CCol, CContainer, CRow } from "coreui-next";
 import { CCardTitle } from "@coreui/react";
 import CarouselSlider from "./slider/CarouselSlider";
 import ProductsSlider from "./slider/ProductsSlider";
-import {homeJson}from "../data/home/HomeData";
-import { goalCards } from "../data/ourGoals/Goals";
 
 
 
-export const getStaticProps = () => {
-  return {
-    props: {
-      manage: homeJson,
-      goal:goalCards
+// export const getStaticProps = () => {
+//   return {
+//     props: {
+//       manage: homeJson,
+//       goal:goalCards
       
-    }
-  }
-}
+//     }
+//   }
+// }
 
 
 

@@ -12,13 +12,7 @@ export default async function handler(req, res) {
       
     }
   
-    else if (req.method === 'PUT') {
-      //  console.log(req.method)
-      const response = await fetch(`${URL}/update`,{method: "PUT"} );
-      const val =await  response.json();
-      res.send(val)
-  
-    }
+
   
   
   
