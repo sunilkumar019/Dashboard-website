@@ -55,7 +55,7 @@ const CustomizeAbout = () => {
                 placeholder="Enter your text here... "
                 autoComplete="given-name"
                 className=" px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
-              />
+              />  
               <label
                 htmlFor="about"
                 className="block text-sm font-medium text-white"
