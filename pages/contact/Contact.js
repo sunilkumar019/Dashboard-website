@@ -1,22 +1,10 @@
 import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from "coreui-next";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
-
-import { useEffect } from "react";
-
-
-export const getStaticProps = () => {
-  return {
-    props: {
-      manage: contactJson,
-      
-    }
-  }
-}
-
-const Contact = ({manage}) => {
-
-   
+ 
+const Contact = ( ) => {
+ 
+ 
   return (
     <div>
 
@@ -44,14 +32,12 @@ const Contact = ({manage}) => {
             src="https://thumbs.dreamstime.com/b/contact-us-banner-suitable-website-header-58969407.jpg"
           
           />
-            {/* <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
-              <h1  style={{ fontWeight: "bold", fontSize: "52px" }}></h1>
-            </div> */}
+            <span className="absolute pt-5 mt-5 text-white w-100">
+              <h1 className="animated bounce slower infinite text-center"  style={{ fontWeight: "bold", fontSize: "52px" , }} >Contact Us</h1>
+            </span>
         
         </CCard>
       </div>
-
-
       {/*contact us*/}
       <section >
         <div className="container-lg py-8 mt-5">

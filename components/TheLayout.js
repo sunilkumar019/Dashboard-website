@@ -1,4 +1,3 @@
-// layout
 import TheHeader from "./TheHeader";
 import TheFooter from "./TheFooter";
 import Head from "next/head";
@@ -13,13 +12,15 @@ export default function TheLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-{/* layout */}
-      <TheSidebar />
-        <TheHeader />
-        <main>{children}</main>
-        <TheFooter />
-    
+      {/*application layout */}
+      <div id="mySideBar">
+        <TheSidebar />
+        <>
+          <TheHeader />
+          <main>{children}</main>
+          <TheFooter />
+        </>
+      </div>
     </div>
   );
-}
+};

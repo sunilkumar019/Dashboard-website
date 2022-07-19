@@ -2,8 +2,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
  
 
-export const api = createApi({
-  reducerPath: 'api',
+export const aboutApi = createApi({
+  reducerPath: 'aboutApi',
   baseQuery: fetchBaseQuery({ baseUrl:` http://localhost:3002/api/web/customizeAbout/` }),
   tagTypes: ["About"],
   endpoints: (build) => ({
@@ -40,7 +40,7 @@ export const {
   useCreateTaskMutation,
   useUpdateTaskMutation,
   useDeleteTaskMutation
-} = api;
+} = aboutApi;
 
 
 

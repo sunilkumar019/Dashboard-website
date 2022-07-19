@@ -9,21 +9,20 @@ import Link from "next/link";
 
 const Products = () => {
 
- 
-  setPassword("sunil")
+
   return (
     <div>
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
 
-          <Link href="/">
+          <Link href="">
             <a className="phone"><MDBIcon icon="phone"/></a>
           </Link>
-          <Link href="/">
+          <Link href="">
             <a className="facebook"><MDBIcon fab icon="whatsapp"/></a>
           </Link>
-          <Link href="/">
+          <Link href="">
             <a className="email"><MDBIcon icon="envelope"/></a>
           </Link>
         </div>

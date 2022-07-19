@@ -2,38 +2,30 @@ import { configureStore } from '@reduxjs/toolkit';
 import selectSlice from "./actionReducers/selectSlice";
 
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { api } from './actionReducers/aboutSlice'
+import { aboutApi } from './actionReducers/aboutSlice';
 import { servicesApi } from './actionReducers/servicesSlice';
-import { persistReducer, persistStore , FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,} from 'redux-persist';
- import storage from 'redux-persist/lib/storage';
-
- const persistConfig = {
-  key: 'root',
-  storage,
-}
-
-const persistedReducer = persistReducer(persistConfig,selectSlice)
+import { homeApi } from './actionReducers/homeSlice';
+ 
+ 
+  
 
 export const store = configureStore({ 
+
   reducer: {
     changed:selectSlice,
-    [api.reducerPath]: api.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(api.middleware),
+    [aboutApi.reducerPath]: aboutApi.reducer,
+    [homeApi.reducerPath]:homeApi.reducer
 
+  },
+   
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(servicesApi.middleware),
+  getDefaultMiddleware().concat(servicesApi.middleware,aboutApi.middleware,homeApi.middleware),
+  
   
  
 })
 
 setupListeners(store.dispatch);
 
-export const persistor = persistStore(store)
+ 

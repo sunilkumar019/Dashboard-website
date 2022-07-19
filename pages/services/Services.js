@@ -9,12 +9,11 @@ import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 import {NotificationContainer} from 'react-notifications';
 import { useFetchTasksQuery} from "../../store/actionReducers/servicesSlice";
+import Head from "next/head";
 
 // export async function getServerSideProps() {
 //   // Fetch data from external API
-//   const res = await fetch(`http://localhost:3002/api/web/customizeservices/get`)
-//   const data = await res.json()
-
+  
 //   // Pass data to the page via props
 //   return { props: { data } }
 // }
@@ -23,29 +22,31 @@ import { useFetchTasksQuery} from "../../store/actionReducers/servicesSlice";
 
 
 const Services = () => {
-   const { data } = useFetchTasksQuery();
+   const {data,isError,isLoading,isFetching} = useFetchTasksQuery();
+
+ 
   return (
     <div>
+      
+      
       <NotificationContainer/>
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
 
-          <Link href="/">
+          <Link href="">
             <a className="phone"><MDBIcon icon="phone" /></a>
           </Link>
-          <Link href="/">
+          <Link href="">
             <a className="facebook"><MDBIcon fab icon="whatsapp" /></a>
           </Link>
-          <Link href="/">
+          <Link href="">
             <a className="email"><MDBIcon icon="envelope" /></a>
           </Link>
         </div>
       </section>
-
-
+ 
       <div>
-
         <CCard>
           <CCardImg
             className='relative h-72 '
@@ -53,43 +54,41 @@ const Services = () => {
             src="https://thumbs.dreamstime.com/b/modern-microscope-many-test-tubes-analysis-laboratory-banner-design-184405096.jpg"
 
           />
-          {/* <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 px-56 text-black ">
-            <h1 style={{ fontWeight: "bold", fontSize: "52px" }}>Services</h1>
-          </div> */}
+          <span className="absolute pt-5 mt-5 text-white w-100 ">
+              <h1 className="animated bounce slower infinite text-center  "style={{ fontWeight: "bold", fontSize: "52px" , }} > Best services</h1>
+            </span>
 
         </CCard>
       </div>
 
       {/*sevices*/}
-
-
       <div>
+      {isFetching?(
+        <>Please wait while data is loading...</>
+      ):data.data.map((item,i) => {
+        return (<div key={i}>
+          <section >
+            <CContainer className="my-5">
+              <CRow>
 
-        {
-           data&&data.data.map((item,i) => {
-            return (<div key={i}>
-              <section >
-                <CContainer className="my-5">
-                  <CRow>
+                <CCol md={12}  >
+                  <h1 className=" h3 text-dark  text-start pb-2">
+                    <b >
+                      {item.heading}
+                    </b>
+                  </h1>
 
-                    <CCol md={12}  >
-                      <h1 className=" h3 text-dark  text-start pb-2">
-                        <b >
-                          {item.heading}
-                        </b>
-                      </h1>
+                  <p className="text-dark text-start"   >
+                  {item.text}
+                  </p>
+                </CCol>
 
-                      <p className="text-dark text-start"   >
-                      {item.text}
-                      </p>
-                    </CCol>
-
-                  </CRow>
-                </CContainer>
-              </section>
-            </div>)
-          })
-        }
+              </CRow>
+            </CContainer>
+          </section>
+        </div>)
+      })
+    }
       </div>
 
 

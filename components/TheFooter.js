@@ -18,10 +18,10 @@ const TheFooter = () => {
                     <div className="col-lg-3 col-md-6 col-12 pt-5">
                         <h2 className="h4 text-light  pb-3">Follow Us</h2>
 
-                        <div className="map-responsive">
-                            <iframe frameBorder="0" src="" style={{ width: "260px", height: "240px",border:'2px solid white' }} allowFullScreen></iframe>
+                        <span className="map-responsive">
+                            <iframe frameBorder="0" src="" style={{ width: "240px", height: "240px",border:'2px solid white' }} allowFullScreen></iframe>
 
-                        </div>
+                        </span>
                     </div>
                     <div className="col-lg-3 col-md-6 col-12 pt-5  ">
                         <h2 className="h4 text-light pb-3 ">Quick Links</h2>
