@@ -14,7 +14,7 @@ const TheHeader = () => {
               <small className="py-3 ">
                 <marquee
                   direction="left"
-                  style={{ width: "800px", color: "white" }}
+                  style={{ width: "680px", color: "white" }}
                   behavior="scroll"
                 >
                   <b>
@@ -47,7 +47,7 @@ const TheHeader = () => {
     <div className="sticky top-0 z-20 left-0 right-0 " >
       {/*  <!-- Navbar Start --> */}
       <nav className="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-        <Link href="/">
+        <Link href="">
           <a className="navbar-brand p-0">
             <h1 className=" text-rose-600 ">
             <MDBIcon fab icon="ioxhost" />Pharma
@@ -64,6 +64,7 @@ const TheHeader = () => {
         </button>
         <div className="collapse navbar-collapse mx-5" id="navbarCollapse">
           <div className="navbar-nav  ms-auto ">
+            
             <Link href="/">
               <a className="nav-item border-end nav-link  px-4">Home</a>
             </Link>

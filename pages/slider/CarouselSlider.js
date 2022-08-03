@@ -1,21 +1,4 @@
 import Carousel from "react-multi-carousel";
-import { CCard, CCardBody } from '@coreui/react'
-import Link from "next/link";
-import { CContainer } from "coreui-next";
-import {homeJson}from '../../data/home/HomeData';
-
-
-
-export const getStaticProps = () => {
-  return {
-    props: {
-      manage: homeJson,
-      
-    }
-  }
-}
-// console.log(homeJson)
-
 const CarouselSlider = () => {
     const responsive = {
         desktop: {
@@ -26,12 +9,12 @@ const CarouselSlider = () => {
         tablet: {
             breakpoint: { max: 1024, min: 464 },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            slidesToSlide: 1 // optional, default to 2.
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            slidesToSlide: 1 // optional, default to 3.
         }
     };
 
@@ -56,13 +39,13 @@ const CarouselSlider = () => {
 
            
             <div >
-                <img src=" https://www.pharmahopers.com/assets/images/pharma-franchise-banner.jpg" alt=""style={{height:"500px" ,width:"100%"}}/>
+                <img src=" https://images.squarespace-cdn.com/content/v1/5f7b9b1a8be07a70f92c0f4e/1642372492855-CX5Y26IBZDK5KLNAC4J7/pharma+range+photos.022.png" alt="slider" style={{height:"500px" ,width:"100%"}}/>
             </div>
             <div >
-                <img src="https://cutewallpaper.org/21/pharmacist-wallpaper/Pharmacy-Wallpaper-43-Pictures.png" alt=""style={{height:"500px" ,width:"100%"}}  />
+                <img src="https://cutewallpaper.org/21/pharmacist-wallpaper/Pharmacy-Wallpaper-43-Pictures.png"alt="slider" style={{height:"500px" ,width:"100%"}}  />
             </div>
             <div >
-                <img  src="https://cutewallpaper.org/21/laboratory-wallpaper/Laboratory-Vectors-Photos-and-PSD-files-Free-Download.jpg" alt="" style={{height:"500px" ,width:"100%"}} />
+                <img  src=" https://media.nature.com/lw1024/magazine-assets/d43978-020-00011-4/d43978-020-00011-4_18482702.jpg"alt="slider" style={{height:"500px" ,width:"100%"}} />
             </div>
             
         </Carousel>

@@ -1,20 +1,10 @@
 import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from "coreui-next";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
-import { contactJson } from "../../data/contact/ContactData";
-
-
-export const getStaticProps = () => {
-  return {
-    props: {
-      manage: contactJson,
-      
-    }
-  }
-}
-
-const Contact = ({manage}) => {
-  
+ 
+const Contact = ( ) => {
+ 
+ 
   return (
     <div>
 
@@ -42,14 +32,12 @@ const Contact = ({manage}) => {
             src="https://thumbs.dreamstime.com/b/contact-us-banner-suitable-website-header-58969407.jpg"
           
           />
-            <div className="animated fadeInRight slower infinite absolute pt-5 mt-5 text-white ">
-              <h1  style={{ fontWeight: "bold", fontSize: "52px" }}></h1>
-            </div>
+            <span className="absolute pt-5 mt-5 text-white w-100">
+              <h1 className="animated bounce slower infinite text-center"  style={{ fontWeight: "bold", fontSize: "52px" , }} >Contact Us</h1>
+            </span>
         
         </CCard>
       </div>
-
-
       {/*contact us*/}
       <section >
         <div className="container-lg py-8 mt-5">
@@ -63,7 +51,7 @@ const Contact = ({manage}) => {
                   <strong>Our Location</strong>
                 </CCardTitle>
                 <CCardText>
-                  <a className="globaltext1" href="#" >abc</a>
+                  <Link href="#"><a className="globaltext1">abc</a></Link>
                 </CCardText>
 
               </CCard>
@@ -75,7 +63,7 @@ const Contact = ({manage}) => {
                   <strong>Contact Us Anytime</strong>
                 </CCardTitle>
                 <CCardText>
-                  <a className="globaltext1" href="">+9876543210</a>
+                 <Link  href=""><a className="globaltext1">+9876543210</a></Link>
                 </CCardText>
 
               </CCard>
@@ -87,7 +75,7 @@ const Contact = ({manage}) => {
                   <strong>Write Some Words</strong>
                 </CCardTitle>
                 <CCardText>
-                  <a className="globaltext1" href="">amlrgg@gmail.com</a>
+                 <Link href=""><a className="globaltext1" >amlrgg@gmail.com</a></Link>
                 </CCardText>
 
               </CCard>

@@ -3,12 +3,11 @@ import { MDBIcon } from "mdbreact";
 import { CCard, CCardBody } from '@coreui/react'
 import { CContainer, CRow } from 'coreui-next';
 import Link from "next/link";
-
+ 
 
 
 
 const Products = () => {
-
 
 
   return (
@@ -17,13 +16,13 @@ const Products = () => {
       <section>
         <div className="icon-Homebar">
 
-          <Link href="/">
+          <Link href="">
             <a className="phone"><MDBIcon icon="phone"/></a>
           </Link>
-          <Link href="/">
+          <Link href="">
             <a className="facebook"><MDBIcon fab icon="whatsapp"/></a>
           </Link>
-          <Link href="/">
+          <Link href="">
             <a className="email"><MDBIcon icon="envelope"/></a>
           </Link>
         </div>
@@ -36,7 +35,7 @@ const Products = () => {
             <div className="col-12 text-center">
               <h1 className="h2 text-white animated zoomIn">Our Products</h1>
               <Link href="/">
-                <a className="h6 text-white">Home</a>
+                <a className="h6 text-white ">Home</a>
               </Link>
               &nbsp; &nbsp;
               <MDBIcon icon="angle-right" className="text-white" />

@@ -6,52 +6,18 @@ import { CCard, CCardBody, CCol, CContainer, CRow } from "coreui-next";
 import { CCardTitle } from "@coreui/react";
 import CarouselSlider from "./slider/CarouselSlider";
 import ProductsSlider from "./slider/ProductsSlider";
-import {homeJson}from "../data/home/HomeData";
-import { goalCards } from "../data/ourGoals/Goals";
+import { useFetchTasksQuery, useCreateTaskMutation, useDeleteTaskMutation, useUpdateTaskMutation } from "../store/actionReducers/homeSlice";
+   
+ export async function getServerSideProps() {
+  const res = await fetch(`http://localhost:3002/api/web/customizehome/get`)
+  const data = await res.json()
 
-
-
-export const getStaticProps = () => {
-  return {
-    props: {
-      manage: homeJson,
-      goal:goalCards
-      
-    }
-  }
+  return { props: { data } }
 }
+const Home = ({data}) => {
+   //const { data } = useFetchTasksQuery();
 
 
-
-
-
-const Home = ({manage,goal}) => {
-
-  // for(var i = 0; i < homeJson.length; i++) {
-//   var obj = homeJson[i];
-// }
-// for (var key in json) {
-// if (homeJson.hasOwnProperty(key)) {
-//   alert(homeJson[key].id);
-//   alert(homeJson[key].msg);
-// }
-// }
-
- 
-
-
-//   const [noOfElement, setnoOfElement] = useState(8);
-
-//    const slice = data.slice(0, noOfElement);
-
-
-// // products cat limit
-//      const viewAll = () => {
-
-//     setnoOfElement(noOfElement + noOfElement);
-//   }
-
- 
 
 
   return (
@@ -61,14 +27,14 @@ const Home = ({manage,goal}) => {
       <section>
         <div className="icon-Homebar">
 
-          <Link href="/">
-            <a className="phone"><MDBIcon icon="phone"/></a>
+          <Link href="">
+            <a className="phone"><MDBIcon icon="phone" /></a>
           </Link>
-          <Link href="/">
-            <a className="facebook"><MDBIcon fab icon="whatsapp"/></a>
+          <Link href="">
+            <a className="facebook"><MDBIcon fab icon="whatsapp" /></a>
           </Link>
-          <Link href="/">
-            <a className="email"><MDBIcon icon="envelope"/></a>
+          <Link href="">
+            <a className="email"><MDBIcon icon="envelope" /></a>
           </Link>
         </div>
       </section>
@@ -83,8 +49,8 @@ const Home = ({manage,goal}) => {
       <section>
         <CContainer className="pt-5">
           <CRow className="row text py-3" >
-            <div className="col-lg-12 m-auto">
-              <h1 className="h1 pl-3 animated pulse slower infinite "><span style={{ color: "#E1204D" }} className="slide-out-right">Welcome To</span> Pharma Biotech Pvt.Ltd</h1>
+            <div className="col-lg-12 m-auto   " >
+              <h1 className="h1 pl-3 animated pulse slower infinite " id="myanimate"><span style={{ color: "#E1204D" }} className="slide-out-right">Welcome To</span> Pharma Biotech Pvt.Ltd</h1>
               <b>  <p className="text-muted">
                 <Link href=""><a>PHARMA BIOTECH</a></Link> PVT.LTD.is a professionally managed fast growing pharmaceutical company having presence in domestic market with over 150 products in various Ranges. Our Products Ranges from general to antibiotics. DEXON BIOTECH is an ISO 9001:2015 Certified Company and complies with GMP Standards and as a group it has strong presence in the market with innovative product range comprising Latest Antibiotics, Ayurvedic Products, General Products, Ophthalmic Product, Pediatric Range, Derma care, I.V. Fluids and many more. It is an endeavor of our esteemed organization to always devise innovative and result oriented ideas because innovation always gets acknowledged.
               </p></b>
@@ -103,23 +69,29 @@ const Home = ({manage,goal}) => {
         <CContainer fluid className="py-5" style={{ backgroundColor: "LightGray" }}>
           <CContainer className="py-5">
             <CRow>
-              <CCol md={3} className="mb-3 ">
-                <div className="testimotionals">
-                  <CCard className="card pt-4">
-                    <div className="layer">
-                    </div>
-                    <div className="content">
-                      <div className="image mb-2">
-                        <img align="center"  src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/network-1.jpg" alt="" />
-                      </div>
-                      <p className="text-md-start px-4">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+              {
+                data && data.data[0].cardList.map((item, index) => {
 
-                    </div>
-                  </CCard>
-                </div>
+                  return (<CCol md={3} className="mb-3 " key={index}>
+                    <div className="testimotionals" >
+                      <CCard className="card pt-4">
+                        <div className="layer">
+                        </div>
+                        <div className="content">
+                          <div className="image mb-2">
+                            <img align="center" src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/network-1.jpg" alt="" />
+                          </div>
+                          <p className="text-md-start px-4">{item.text}</p>
 
-              </CCol>
-              <CCol md={3} className="mb-3">
+                        </div>
+                      </CCard>
+                    </div>
+
+                  </CCol>)
+
+                })
+              }
+              {/* <CCol md={3} className="mb-3">
                 <div className="testimotionals">
                   <CCard className="card pt-4">
                     <div className="layer">
@@ -166,7 +138,7 @@ const Home = ({manage,goal}) => {
                   </CCard>
                 </div>
 
-              </CCol>
+              </CCol> */}
             </CRow>
           </CContainer>
         </CContainer>
@@ -274,59 +246,38 @@ const Home = ({manage,goal}) => {
       </section>
 
       {/* banner */}
-      <section>
+      {/* <section>
         <div>
           <img alt="banner" style={{ width: "100%" }} src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/b6-new.jpg" />
         </div>
-      </section>
+      </section> */}
 
-      {/* two cards*/}
-      <section >
-        <CContainer className="my-5" >
-
-          <CRow className="text-center" >
-            <div className="col-12 col-md-6 pb-3" >
-              <div className="card h-70 " style={{ borderRadius: "10px" }}>
-                <a href="#">
-                  <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/tablet-new-banner.jpg" className="card-img-top " style={{ borderRadius: "10px" }} alt="..." />
-                </a>
-
-              </div>
-
-            </div>
-            <div className="col-12 col-md-6 ">
-              <div className="card h-70 " style={{ borderRadius: "10px" }}>
-                <a href="#">
-                  <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/product-banner-1.jpg" className="card-img-top " style={{ borderRadius: "10px" }} alt="..." />
-                </a>
-
-              </div>
-
-            </div>
-
-
-          </CRow>
-        </CContainer>
-      </section>
 
       {/* our services */}
       <section >
         <CContainer fluid className="my-5  card21" style={{ backgroundColor: "LightGray" }}>
           <CContainer className="py-5">
-            <div className="text-center text-light pt-3">
-              <h3>Our Services</h3>
-            </div>
-            <CRow className="pb-5">
-              <CCol md={4} className="animated pulse slow infinite ">
-                <div className="box">
-                  <div className="our-services settings" >
-                    <div className="icon   px-5"> <img src="https://i.imgur.com/AgyneKA.png" /> </div>
-                    <h4>PCD PHARMA</h4>
-                    <p className="text-muted "><b>We Provide Ethical Based Pcd Pharma Franchise In India, Where You Can Be Your OWN BOSS In Your Territory, No Politics, No Work Pressure,</b></p>
+            {data && data.data[0].servicesList.map((items, index) => {
+              return (
+                <div key={index}>
+                  <div className="text-center text-light pt-3">
+                    <h3>{items.serviceHeading}</h3>
                   </div>
-                </div>
-              </CCol>
-              <CCol md={4} className="animated pulse slow infinite ">
+                  <CRow className="pb-5">
+                    {
+                      items.serviceCards.map((item ,index) => {
+                        return (<CCol md={4} className="animated pulse slower infinite " key={index}>
+                          <div className="box  ">
+                            <div className="our-services speedup text-start" >
+                              <div className="icon px-24"> <img src="https://i.imgur.com/AgyneKA.png" /> </div>
+                              <h4>{item.heading}</h4>
+                              <p className=" text-sm font-medium text-overflow:ellipsis; "  > {item.text}  </p>
+                            </div>
+                          </div>
+                        </CCol>)
+                      })
+                    }
+                    {/* <CCol md={4} className="animated pulse slow infinite ">
                 <div className="box">
                   <div className="our-services speedup" >
                     <div className="icon px-5"> <img src="https://i.imgur.com/AgyneKA.png" /> </div>
@@ -336,22 +287,25 @@ const Home = ({manage,goal}) => {
                 </div>
               </CCol>
               <CCol md={4} className="animated pulse slow infinite ">
-                <div className="box">
+                <div className="box"> 
                   <div className="our-services privacy">
                     <div className="icon  px-5"> <img src="https://i.imgur.com/AgyneKA.png" /> </div>
                     <h4>CONTRACT MANUFACTURING</h4>
                     <p className="text-muted"><b>The Company provides fully integrated contract manufacturing and development solutions to our customers, from early.</b></p>
                   </div>
                 </div>
-              </CCol>
-            </CRow>
+              </CCol> */}
+                  </CRow>
+                </div>
+              )
+            })}
           </CContainer>
         </CContainer>
       </section>
 
       {/*information */}
       <section>
-        <OurGoals  />
+        <OurGoals />
       </section>
 
       {/*products details */}
@@ -359,21 +313,27 @@ const Home = ({manage,goal}) => {
         <CContainer className="py-5" >
 
           <CRow className="text-start" >
-            <div className="col-12 col-md-6 mb-4 " >
-              <h1 className="h3 text-muted lh-base">Products <span className="globaltext1">Detail</span></h1>
-              <hr className="text-dark mx-auto mx-md-0" style={{ height: "0px", width: "0px" }} />
-              <p>One can only get the benefits of owning a pharma franchise if that person invests in the right pharma franchise company. With the growth of the pharma industry, you will see the many options for the pharma franchise in the market. This sometimes makes it difficult for the investor to choose the right pharma franchise company and as a result, they often go for the wrong one. Here are some points that can help you going for the right pharma franchise company:</p>
 
-              <ul>
-                <li>ISO and WHO certifications</li>
-                <li>High-quality products matching the required quality standard</li>
-                <li>A large product inventory, which will help you to become successful as a franchise</li>
-                <li>High degree of commitment to providing quality products for the benefit of common people</li>
-              </ul>
-              <div className="col-md-4 ">
-                <button className="btn btn-primary btn-sm" type="button">Call US</button>
-              </div>
-            </div>
+            {
+              data && data.data[0].productDetails.map((it, index) => {
+
+                return (<div className="col-12 col-md-6 mb-4 " key={index} >
+                  <h1 className="h3 text-muted lh-base"> <span className="globaltext1">{it.heading}</span></h1>
+                  <hr className="text-dark mx-auto mx-md-0" style={{ height: "0px", width: "0px" }} />
+                  <p>{it.text}</p>
+
+                  {/* <ul>
+                
+               <li>{it.liText}</li>
+                
+                 
+              </ul> */}
+                  <div className="col-md-4 ">
+                    <button className="btn btn-primary btn-sm" type="button">Call US</button>
+                  </div>
+                </div>)
+              })
+            }
             <div className="col-12 col-md-6 mb-4 rounded-lg" style={{ backgroundColor: "LightGray" }}>
 
               <div className="row pt-2">

@@ -8,7 +8,7 @@ export const selectSlice = createSlice({
   },
   reducers: {
     selectOption: (state, action) => {
-      state.value==action.payload.selectOption
+      state.value==action.payload
      
     },
    
