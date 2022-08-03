@@ -57,7 +57,7 @@ const ProductsSlider = () => {
 
                             <div className='col-md-12 mx-auto'>
                                 <CCardBody className=" border border-dark rounded-md " >
-                                    <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/Dexozyme.jpg" className=" card-img-top" alt="medicine" />
+                                    <img src="xxx" className=" card-img-top" alt="medicine" />
 
                                 </CCardBody>
                                 <div className=" mt-3 py-1 bg-dark" >
@@ -70,7 +70,7 @@ const ProductsSlider = () => {
 
                             <div className='col-md-12 mx-auto'>
                                 <CCardBody className=" border border-dark rounded-md " >
-                                    <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/Cefdex-300x300.jpg" className="card-img-top" alt="medicine" />
+                                    <img src="xxx" className="card-img-top" alt="medicine" />
 
                                 </CCardBody>
                                 <div className=" mt-3 py-1 bg-dark" >
@@ -81,7 +81,7 @@ const ProductsSlider = () => {
                             </div>
                             <div className='col-md-12 mx-auto '>
                                 <CCardBody className=" border border-dark rounded-md" >
-                                    <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/Cefdex-S.jpg" className="card-img-top" alt="medicine" />
+                                    <img src="xxx" className="card-img-top" alt="medicine" />
 
                                 </CCardBody>
                                 <div className=" mt-3 py-1 bg-dark " >
@@ -92,7 +92,7 @@ const ProductsSlider = () => {
                             </div>
                             <div className='col-md-12 mx-auto'>
                                 <CCardBody className=" border border-dark rounded-md " >
-                                    <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/Cefdex-S.jpg" className="card-img-top" alt="medicine" />
+                                    <img src="xxx" className="card-img-top" alt="medicine" />
 
                                 </CCardBody>
                                 <div className=" mt-3 py-1 bg-dark" >
@@ -103,7 +103,7 @@ const ProductsSlider = () => {
                             </div>
                             <div className='col-md-12 mx-auto'>
                                 <CCardBody className=" border border-dark rounded-md" >
-                                    <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/Dexocal-D3-300x300.jpg" className="card-img-top" alt="medicine" />
+                                    <img src="xxx" className="card-img-top" alt="medicine" />
 
                                 </CCardBody>
                                 <div className=" mt-3 py-1 bg-dark" >
@@ -114,7 +114,7 @@ const ProductsSlider = () => {
                             </div>
                             <div className='col-md-12 mx-auto'>
                                 <CCardBody className=" border border-dark rounded-md " >
-                                    <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/Doxidex-100-300x300.jpg" className="card-img-top" alt="medicine" />
+                                    <img src="xxx" className="card-img-top" alt="medicine" />
 
                                 </CCardBody>
                                 <div className=" mt-3 py-1 bg-dark" >
@@ -126,7 +126,7 @@ const ProductsSlider = () => {
 
                             <div className='col-md-12 mx-auto'>
                                 <CCardBody className=" border border-dark rounded-md" >
-                                    <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/Ferxodex-XT-1-300x300.jpg" className="card-img-top" alt="medicine" />
+                                    <img src="xxx" className="card-img-top" alt="medicine " />
 
                                 </CCardBody>
                                 <div className=" mt-3 py-1 bg-dark" >

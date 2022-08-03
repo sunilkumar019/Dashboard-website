@@ -14,7 +14,7 @@ const TheHeader = () => {
               <small className="py-3 ">
                 <marquee
                   direction="left"
-                  style={{ width: "800px", color: "white" }}
+                  style={{ width: "680px", color: "white" }}
                   behavior="scroll"
                 >
                   <b>
@@ -47,7 +47,7 @@ const TheHeader = () => {
     <div className="sticky top-0 z-20 left-0 right-0 " >
       {/*  <!-- Navbar Start --> */}
       <nav className="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-        <Link href="/">
+        <Link href="#">
           <a className="navbar-brand p-0">
             <h1 className=" text-rose-600 ">
             <MDBIcon fab icon="ioxhost" />Pharma
@@ -84,16 +84,16 @@ const TheHeader = () => {
                 </a>
               </Link>
               <div className="dropdown-menu m-0">
-                <Link href="">
+                <Link href="#">
                   <a className="dropdown-item">Pricing Plan</a>
                 </Link>
-                <Link href="">
+                <Link href="#">
                   <a className="dropdown-item">Our Dentist</a>
                 </Link>
-                <Link href="">
+                <Link href="#">
                   <a className="dropdown-item">Testimonial</a>
                 </Link>
-                <Link href="">
+                <Link href="#">
                   <a className="dropdown-item active">Appointment</a>
                 </Link>
               </div>

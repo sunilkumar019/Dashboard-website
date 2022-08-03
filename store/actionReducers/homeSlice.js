@@ -1,25 +1,43 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { homeJson } from '../../data/home/HomeData';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
  
 
-export const homeSlice = createSlice({
+export const homeApi = createApi({
+  reducerPath: 'homeApi',
+  baseQuery: fetchBaseQuery({ baseUrl:` http://localhost:3002/api/web/customizehome/` }),
 
-    name: 'home',
-    initialState:homeJson
- 
-,
-    reducers: {
-        homeData: (state, action) => {
-            state.home =[...state.home]
+  tagTypes: ["homeApi"],
+  endpoints: (build) => ({
+    fetchTasks: build.query({ query: () => "/get", providesTags: ["homeApi"] }),
 
-        },
-        addHome:(state,action)=>{
-           
-        }
-     
-    },
+    createTask: build.mutation({
+      query: (data) => ({
+        url: "/add",
+        method: "POST",
+        body: data
+      }),
+      invalidatesTags: ["homeApi"]
+    }),
+    updateTask: build.mutation({
+      query: ({ id, ...data }) => ({
+        url: `/update/${id}`,
+        method: "PUT",
+        body: data
+      }),
+      invalidatesTags: ["homeApi"]
+    }),
+    deleteTask: build.mutation({
+      query: (id) => ({
+        url: `/delete/${id}`,
+        method: "DELETE"
+      }),
+      invalidatesTags: ["homeApi"]
+    })
+  })
+});
 
-})
-export const { homeData } = homeSlice.actions
-
-export default homeSlice.reducer;
+export const {
+  useFetchTasksQuery,
+  useCreateTaskMutation,
+  useUpdateTaskMutation,
+  useDeleteTaskMutation
+} = homeApi;

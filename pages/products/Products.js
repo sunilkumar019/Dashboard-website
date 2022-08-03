@@ -3,27 +3,26 @@ import { MDBIcon } from "mdbreact";
 import { CCard, CCardBody } from '@coreui/react'
 import { CContainer, CRow } from 'coreui-next';
 import Link from "next/link";
- 
+
 
 
 
 const Products = () => {
 
- 
-  setPassword("sunil")
+
   return (
     <div>
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
 
-          <Link href="/">
+          <Link href="#">
             <a className="phone"><MDBIcon icon="phone"/></a>
           </Link>
-          <Link href="/">
+          <Link href="#">
             <a className="facebook"><MDBIcon fab icon="whatsapp"/></a>
           </Link>
-          <Link href="/">
+          <Link href="#">
             <a className="email"><MDBIcon icon="envelope"/></a>
           </Link>
         </div>
@@ -56,7 +55,7 @@ const Products = () => {
             <div className="col-12 col-md-3 mb-5 ">
               <CCard className="shadow card19" >
                 <a >
-                  <img src="https://www.dexonbiotech.com/wp-content/uploads/2022/03/Cefdex-200-300x300.jpg" className="card-img-top" style={{ height: "250px", width: "100%" }} alt="medicine" />
+                  <img src="xx"className="card-img-top text-dark" style={{ height: "250px", width: "100%" }} alt="Product image" />
                 </a>
               </CCard>
               <CCardBody className=" py-2 globalColor1 mt-3" >
