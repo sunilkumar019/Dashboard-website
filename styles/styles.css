@@ -9,6 +9,11 @@
   background-color: rgb(35,40,45);
 }
 
+.sidebarCenterSet{
+  padding: 10px 4px 0px 4px !important;
+  background-color: rgb(35,40,45) !important;
+}
+
 .accordion-button {
   background-color: red;
 }
@@ -309,7 +314,11 @@ body {
   border: 4px solid white;
 }
 
-.testimotionals .card:hover .content p {
+.testimotionals .card:hover .content p{
+  color: white;
+  transition: 1.5s;
+}
+.testimotionals .card:hover .content h5{
   color: white;
   transition: 1.5s;
 }

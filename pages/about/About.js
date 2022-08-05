@@ -1,32 +1,30 @@
 
 import React, { useState, useEffect, Component } from 'react'
 import OurGoals from './OurGoals'
+import Image from 'next/image'
 import Link from "next/link";
 import { CCard, CContainer, CRow, CCol, CCardImg } from 'coreui-next';
 import { MDBIcon } from 'mdbreact';
 import { useFetchTasksQuery } from "../../store/actionReducers/aboutSlice";
 import { NotificationContainer } from 'react-notifications';
- 
+
 export async function getServerSideProps() {
   const res = await fetch(`http://localhost:3002/api/web/customizeAbout/get`)
   const data = await res.json()
 
   return { props: { data } }
 }
-const About = ({data}) => {
+const About = ({ data }) => {
+  var path = "http://localhost:3002/"
 
   //const { data,isLoading} = useFetchTasksQuery();
-  const [image,setImage]=useState(null);
+  const [image, setImage] = useState(null);
 
-  useEffect(()=>{
- 
-   var value ="http://localhost:3002/"+data.data[0].bannerImage
- 
-    
-    setImage(value)
-
-  },[])
-   return (
+  // useEffect(()=>{
+  //   const {bannerImage,cardsList,}=data.data[0]
+  //   setImage(value)
+  // },[])
+  return (
     <div>
       <NotificationContainer />
       {/* Sticky Social Bar */}
@@ -45,18 +43,18 @@ const About = ({data}) => {
       </section>
 
       {
-         data&&data.data.map((item,index) => {  
-          
+        data && data.data.map((item, index) => {
+
           return (<div key={index}>
             <div>
               <CCard>
-                <CCardImg
-                  className='relative h-72 '
+                <Image
+                  className='relative  '
                   alt="About banner"
-                  src= {image}/>
-  <span className="absolute pt-5 mt-5 text-white w-100 ">
-              <h1 className="animated bounce slower infinite text-center  "style={{ fontWeight: "bold", fontSize: "52px" , }} >{item.bannerText}</h1>
-            </span>
+                  src={`${path}${item.bannerImage}`} height={250} width={500} />
+                <span className="absolute grow mt-5 text-white w-100 ">
+                  <h1 className="animated bounce slower infinite text-center sm:text-sm pt-5" style={{ fontWeight: "bold", fontSize: "52px", }} >{item.bannerText}</h1>
+                </span>
               </CCard>
             </div>
 
@@ -84,9 +82,9 @@ const About = ({data}) => {
                               </div>
                               <div className="content"  >
                                 <div className="image mb-2">
-                                  <img align="center" width="250px" src="zczc" alt="Card images"  />
+                                  <Image  align="center" width={220} height={160} src={`${path}${value.imageUrl}`} alt="Card images" />
                                 </div>
-                                <div className="text-md-start px-4">
+                                <div className="text-md-start px-4 ">
                                   <h5><b>{value.card_heading}</b></h5>
                                   <p>{value.card_text}</p>
                                 </div>
@@ -97,19 +95,19 @@ const About = ({data}) => {
                       )
                     })
                   }
-          
+
                 </CRow>
               </CContainer>
 
             </section>
 
-        </div>)
+          </div>)
         })
       }
-           {/* cards */}
-           <section>
-              <OurGoals />
-            </section>
+      {/* cards */}
+      <section>
+        <OurGoals />
+      </section>
 
     </div>
   )

@@ -16,9 +16,6 @@ const Home = () => {
   });
 
   const handleCreateTask = async (defaultValues) => {
-
-
-
     await createTask({
       sliderImgs: defaultValues.sliderImgs,
       cardList: defaultValues.cardList,
@@ -30,16 +27,24 @@ const Home = () => {
     NotificationManager.success('Successfully updated.');
   };
 
-  const clickHandle = (e) => {
+  // handleUploadImg = (e) => {
+  //   setState({imgUrls:getAllSelectedImages(e)})
+  //   };
 
-    //console.log(e.target.files)
-    if (e.target.files) {
-      var fieldArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file))
-      console.log(fieldArray)
-    }
 
-  }
+  // getAllSelectedImages = event => {
+  //   let files = [];
+  //   for(let i = 0; i < event.target.files.length; i++) {
+  //     let tempFile = event.target.files[i];
+  //     let url = URL.createObjectURL(file);
+  //     let metadata =getFileMetadata(file)
 
+  //       files = [...files, {url, metadata, file}]
+    
+  //   }
+  //   return files;
+  // }
+  
   return (
     <div>
       <div className="text-center mb-2"><h6 className="text-white">
@@ -61,7 +66,7 @@ const Home = () => {
                         <MDBIcon icon="sliders-h" />&nbsp;Carousel Slider
 
                       </CAccordionHeader>
-                      <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
+                      <CAccordionBody className="sidebarCenterSet">
                         <li>
                           <div>
 
@@ -69,29 +74,23 @@ const Home = () => {
                               <MDBIcon far icon="image" className="text-white" size="" />{" "}
                               &nbsp;Uplaod Banner
                             </label>
-                            <div className="mt-1 flex justify-center px-6 pt-2 pb-6 border-2 border-gray-300 border-dashed rounded-md w-64 ">
-                              <div className="space-y-1 text-center">
-                                <MDBIcon
-                                  icon="image"
-                                  className=""
-                                  size="2x"
-                                />
+                            <div className="mt-1 flex justify-center px-6 border-2 border-gray-300 border-dashed rounded-md w-64 ">
+                              <div className="space-y-1 text-center py-2">
+                                
                                 <div className="flex text-sm text-gray-600">
                                   <label
                                     htmlFor="file-upload"
-                                    className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
-                                  >
-                                    <span>Upload a file</span>
+                                    className="relative cursor-pointer rounded-md font-medium text-white hover:text-blue-900 focus-within:outline-none ">
                                     <input
                                       id="file-upload"
                                       name="file-upload"
                                       type="file"
-                                      multiple
-                                      className="sr-only"
-                                      onChange={clickHandle}
+                                      
+                                      className="truncateText"
+                                      
                                     />
                                   </label>
-                                  <p className="pl-1 text-white">or drag and drop</p>
+                                 
                                 </div>
                                 <p className="text-xs text-white">
                                   PNG, JPG, GIF up to 10MB
@@ -106,14 +105,14 @@ const Home = () => {
                     </CAccordionItem>
 
                   </CAccordion>
-                  <hr className="w-64 bg-white my-2" />
+                  <hr className="w-64 bg-white ml-1 my-2" />
                   <CAccordion flush className="mr-4 outline outline-offset-2 outline-1">
                     <CAccordionItem itemKey={1}>
                       <CAccordionHeader>
 
                         <MDBIcon far icon="address-card" />&nbsp;Information Cards
                       </CAccordionHeader>
-                      <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
+                      <CAccordionBody className="sidebarCenterSet">
                         {items.cardList.map((card, index) => {
 
                           return (<li key={index}>
@@ -122,28 +121,27 @@ const Home = () => {
                               <MDBIcon
                                 far
                                 icon="image"
-
-                              />{" "}
+                              />
                               &nbsp;Image
                             </label>
-                            <div className="mt-1 flex justify-center px-6 pt-2 pb-6 border-2 border-gray-300 border-dashed rounded-md w-64 ">
-                              <div className="space-y-1 text-center">
-                                <MDBIcon icon="image" className="text-white" size="2x" />
+                            <div className="mt-1 flex justify-center px-6 border-2 border-gray-300 border-dashed rounded-md w-64 ">
+                              <div className="space-y-1 text-center py-2">
+                               
 
                                 <div className="flex text-sm text-gray-600">
                                   <label
                                     htmlFor="file-upload"
-                                    className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                                    className="relative cursor-pointer rounded-md font-medium text-white hover:text-blue-900 focus-within:outline-none  "
                                   >
-                                    <span>Upload a file</span>
+ 
                                     <input
                                       id="file-upload"
                                       name="file-upload"
                                       type="file"
-                                      className="sr-only"
+                                      className="truncateText"
                                     />
                                   </label>
-                                  <p className="pl-1 text-white">or drag and drop</p>
+                                  
                                 </div>
                                 <p className="text-xs text-white">
                                   PNG, JPG, GIF up to 10MB
@@ -171,7 +169,7 @@ const Home = () => {
                               placeholder="Enter your text here... "
 
                             />
-
+                             <hr className="w-64 bg-white mx-auto my-2" />
 
                           </li>)
                         })}
@@ -180,7 +178,7 @@ const Home = () => {
 
                   </CAccordion>
 
-                  <hr className="w-64 bg-white my-2" />
+                  <hr className="w-64 bg-white ml-1 my-2" />
                   <CAccordion flush className="mr-4 outline outline-offset-2 outline-1">
                     <CAccordionItem itemKey={1}>
                       {
@@ -191,7 +189,7 @@ const Home = () => {
                             <MDBIcon icon="cogs" />&nbsp;Our Services
 
                           </CAccordionHeader>
-                            <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
+                            <CAccordionBody className="sidebarCenterSet">
                               <label
                                 htmlFor="heading"
                                 className="block text-sm font-medium text-white"
@@ -212,7 +210,7 @@ const Home = () => {
                                 autoComplete="given-name"
                                 className="px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
                               />
-                              <hr className="w-64 bg-white my-3" />
+                              <hr className="w-64 bg-white mx-auto my-2" />
 
                               <label className="block  font-medium text-white text-center"><MDBIcon far icon="handshake" />&nbsp; Cards</label>
                               {
@@ -261,7 +259,7 @@ const Home = () => {
                                       placeholder="Enter your text here... "
 
                                     />
-                                    <hr className="w-64 bg-white my-3" />
+                                    <hr className="w-64 bg-white mx-auto my-2" />
 
                                   </li>)
 
@@ -274,7 +272,7 @@ const Home = () => {
 
                   </CAccordion>
 
-                  <hr className="w-64 bg-white my-2" />
+                  <hr className="w-64 bg-white ml-1 my-2" />
 
                   <CAccordion flush className="mr-4 outline outline-offset-2 outline-1">
                     <CAccordionItem itemKey={1}>
@@ -283,7 +281,7 @@ const Home = () => {
                         <MDBIcon icon="cogs" />&nbsp;Products
 
                       </CAccordionHeader>
-                      <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
+                      <CAccordionBody className="sidebarCenterSet">
                         {items.productDetails.map((items, index) => {
                           return (
                             <li key={index}>
@@ -321,7 +319,7 @@ const Home = () => {
                                 className="px-2 shadow-sm  focus:ring-indigo-500 focus:border-indigo-500  block w-64 sm:text-sm border border-gray-300 rounded-md text-black"
                                 placeholder="Enter your text here... "
                               />
-                              <hr className="w-64 bg-white my-3" />
+                              <hr className="w-64 bg-white mx-auto my-2" />
                             </li>
                           )
                         })}

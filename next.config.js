@@ -1,9 +1,12 @@
-/** @type {import('next').NextConfig} */
 require("dotenv").config({ path: `.env.local` });
+/** @type {import('next').NextConfig} */
 
 const nextConfig = {
   reactStrictMode: true,
-  ssr:true
+  ssr:true,
+  images: {
+    domains: ['localhost'],
+  },
 }
 
 // webpack

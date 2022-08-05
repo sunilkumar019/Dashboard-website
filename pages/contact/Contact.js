@@ -1,9 +1,9 @@
 import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from "coreui-next";
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
+import { CCarousel,CCarouselItem, CImage,} from '@coreui/react'
  
 const Contact = ( ) => {
- 
  
   return (
     <div>

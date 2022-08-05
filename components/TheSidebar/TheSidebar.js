@@ -8,7 +8,9 @@ import { selectOption } from '../../store/actionReducers/selectSlice';
 import Home from "./Home";
 import About from './About'
 import Services from './Services';
+import Contact from './Contact'
 import { useRouter } from "next/router";
+
 
 const TheSidebar = () => {
 
@@ -16,8 +18,6 @@ const TheSidebar = () => {
   const [render, setRender] = useState(<Home />);
   const dispatch = useDispatch();
   const router = useRouter();
-
-
 
   const count = useSelector((state) => state.changed.payload);
   const handlerChange = (event) => {
@@ -27,26 +27,21 @@ const TheSidebar = () => {
     dispatch(selectOption(payload))
 
     // console.log(payload)
-
     if (event == "home") {
-
       setRender(<Home />)
-
       router.push('/')
     }
-
     else if (event == "about") {
-
       setRender(<About />)
-
       router.push('/about/About')
     }
-
     else if (event == "services") {
-
       setRender(<Services />)
-
       router.push('/services/Services')
+    }
+    else if (event == "contact") {
+      setRender(<Contact />)
+      router.push('/contact/Contact')
     }
 
   };
@@ -58,9 +53,9 @@ const TheSidebar = () => {
   }
 
 
-
   return (
     <>
+
       {/* select option */}
 
       <CContainer fluid className="ps-5 d-none d-lg-block sidebarColor1">
@@ -80,6 +75,7 @@ const TheSidebar = () => {
                   <option value="home">Home</option>
                   <option value="about">About</option>
                   <option value="services">Services</option>
+                  <option value="contact">Contact</option>
                 </select>
               </span>
 

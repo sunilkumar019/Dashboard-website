@@ -4,46 +4,35 @@ import { useFetchTasksQuery, useCreateTaskMutation, useDeleteTaskMutation, useUp
 import { useForm } from "react-hook-form";
 import { NotificationManager } from 'react-notifications';
 import { CAccordion, CAccordionItem, CAccordionHeader, CAccordionBody, CFormCheck } from '@coreui/react';
+import { useEffect } from "react";
 
 const CustomizeAbout = () => {
-  const [image, setImage] = useState({ preview: '', imageData: '' })
 
-//const ={imageUrl:}
+
   const { data, } = useFetchTasksQuery();
-  const [deleteTask] = useDeleteTaskMutation();
   const [createTask] = useCreateTaskMutation();
   const { register, handleSubmit, setValue, } = useForm({
     defaultValues: data.data[0]
   });
 
-
-
   const handleCreateTask = async (data) => {
-    const { bannerImage, cardImages, cardsList } = data;
-
-//console.log(data)
+    const { bannerImage, cardsList } = data;
+    console.log(data)
     let formData = new FormData()
     formData.append("bannerImage", bannerImage[0])
-    // data.cardImages.forEach(items => {
-    //   formData.append("cardImages", items[0])
-    // });
-    // formData.append("cardImages", JSON.stringify(
-    //   data.cardImages.map((it => it[0].name))
-    // ))
-  cardsList.forEach((it)=>{
-       formData.append("cardsList", it.imageUrl[0])
-  })
-  var av=cardsList.map((item)=>({...item,imageUrl:item.imageUrl[0].name}))
-  console.log(av)
-    formData.append("bannerImage",
-    "core/uploads/webCustomize/about/" + bannerImage[0].name)
+    cardsList.forEach((item) => {
+      formData.append("imageUrl", item.imageUrl[0])
+    })
+    var cardData = cardsList.map((item) => ({ ...item, imageUrl:`core/uploads/webCustomize/about/${item.imageUrl[0].name}` }))
+    formData.append("bannerImage", `core/uploads/webCustomize/about/${bannerImage[0].name}`)
     formData.append("bannerText", data.bannerText)
     formData.append("heading", data.heading)
     formData.append("text", data.text)
-    formData.append("cardsList", JSON.stringify(data.cardsList))
+    formData.append("cardsList", JSON.stringify(cardData))
     formData.append("goalsList", JSON.stringify(data.goalsList))
-    // await createTask(formData).unwrap();
+    await createTask(formData).unwrap();
     NotificationManager.success('Successfully updated.');
+
   };
   return (
     <div>
@@ -64,7 +53,7 @@ const CustomizeAbout = () => {
                       <CAccordionHeader>
                         <MDBIcon fas icon="images" />&nbsp;banner
                       </CAccordionHeader>
-                      <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
+                      <CAccordionBody  className="sidebarCenterSet">
                         <li  >
                           <label className="block text-sm font-medium text-white">
                             <MDBIcon
@@ -82,8 +71,7 @@ const CustomizeAbout = () => {
                               <div className="flex text-sm text-gray-600">
                                 <label
                                   htmlFor="bannerImage"
-                                  className="relative cursor-pointer rounded-md font-medium text-white hover:text-blue-900  focus-within:outline-none  " >
-
+                                  className="relative cursor-pointer rounded-md font-medium text-white hover:text-blue-900  focus-within:outline-none">
                                   <input
                                     id="bannerImage"
                                     type='file'
@@ -100,7 +88,7 @@ const CustomizeAbout = () => {
 
                           <label
                             htmlFor="bannerText"
-                            className="block text-sm font-medium text-white">
+                            className="block text-sm font-medium text-white pt-2">
                             <MDBIcon far icon="edit" className="text-white" />
                             &nbsp; Heading
                           </label>
@@ -115,21 +103,18 @@ const CustomizeAbout = () => {
                             autoComplete="off"
                             className=" px-2 my-2 py-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md text-black w-64"
                           />
-
-
                         </li>
-
                       </CAccordionBody>
                     </CAccordionItem>
 
                   </CAccordion>
-                  <hr className="w-64 bg-white my-2" />
+                  <hr className="w-64 bg-white ml-1  my-2" />
                   <CAccordion flush className="mr-4 outline outline-offset-2 outline-1 ">
                     <CAccordionItem itemKey={1}   >
                       <CAccordionHeader   >
                         <MDBIcon icon="briefcase" />&nbsp; Business Beliefs
                       </CAccordionHeader>
-                      <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
+                      <CAccordionBody className="sidebarCenterSet">
                         {/* "black" */}
                         <li >
                           <label
@@ -174,14 +159,14 @@ const CustomizeAbout = () => {
                     </CAccordionItem>
                   </CAccordion>
 
-                  <hr className="w-64 bg-white my-2" />
+                  <hr className="w-64 bg-white my-2 ml-1" />
 
                   <CAccordion flush className="mr-4 outline outline-offset-2 outline-1">
                     <CAccordionItem itemKey={1}>
                       <CAccordionHeader>
                         <MDBIcon far icon="address-card" />&nbsp;Cards
                       </CAccordionHeader>
-                      <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
+                      <CAccordionBody className="sidebarCenterSet">
                         {item.cardsList.map((card, index) => {
                           return (
                             <div key={index}>
@@ -191,7 +176,6 @@ const CustomizeAbout = () => {
                                     far
                                     icon="image"
                                     className="text-white"
-                                    size=""
                                   />{" "}
                                   &nbsp;Image
                                 </label>
@@ -206,20 +190,9 @@ const CustomizeAbout = () => {
                                           className="truncateText"
                                           id="imageUrl"
                                           type="file"
-                                          {...register(`[cardsList${index}].imageUrl`)}
+                                          {...register(`cardsList[${index}].imageUrl`)}
 
-                                          
-
-
-
-
-
-
-
-
-
-
-/>
+                                        />
                                       </label>
                                     </div>
                                     <p className="text-xs text-white">PNG, JPG, GIF </p>
@@ -267,7 +240,7 @@ const CustomizeAbout = () => {
                                   maxLength={70}
                                   required
                                 />
-                                <hr className="w-64 bg-white my-3" />
+                                <hr className="w-64 mx-auto bg-white my-2" />
                               </li>
 
                             </div>
@@ -277,17 +250,13 @@ const CustomizeAbout = () => {
                       </CAccordionBody>
                     </CAccordionItem>
                   </CAccordion>
-
-
-                  <hr className="w-64 bg-white my-2" />
-
-
+                  <hr className="w-64 bg-white my-2 ml-1" />
                   <CAccordion flush className="mr-4 outline outline-offset-2 outline-1">
                     <CAccordionItem itemKey={1}>
                       <CAccordionHeader>
                         <MDBIcon icon="bullseye" />&nbsp;Goals
                       </CAccordionHeader>
-                      <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
+                      <CAccordionBody className="sidebarCenterSet">
 
                         {item.goalsList.map((items, index) => {
 
@@ -302,23 +271,22 @@ const CustomizeAbout = () => {
                               &nbsp;Image
                             </label>
                             <div className="mt-1 flex justify-center px-6 pt- pb-2 border-2 border-gray-300 border-dashed rounded-md w-64 ">
-                              <div className="space-y-1 text-center">
-                                <MDBIcon icon="image" className="text-white" size="2x" />
+                              <div className="space-y-1 py-2 text-center">
+
 
                                 <div className="flex text-sm text-gray-600">
                                   <label
                                     htmlFor="file-upload"
-                                    className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900  focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                                    className="relative cursor-pointer rounded-md font-medium text-white hover:text-blue-900  focus-within:outline-none"
                                   >
-                                    <span>Upload a file</span>
                                     <input
-                                      id="file-upload"
-                                      name="file-upload"
+                                      className="truncateText"
+                                      id="imageUrl"
                                       type="file"
-                                      className="sr-only"
+
                                     />
+
                                   </label>
-                                  <p className="pl-1 text-white">or drag and drop</p>
                                 </div>
                                 <p className="text-xs text-white">PNG, JPG, GIF up to 10MB</p>
                               </div>
@@ -374,11 +342,7 @@ const CustomizeAbout = () => {
                               {...register(`goalsList[${index}].float`, { value: ' row-reverse' })}
                               label="Right" />
 
-
-
-
-
-                            <hr className="w-64 bg-white my-3" />
+                            <hr className="w-64 mx-auto bg-white my-2" />
                           </li>)
                         })}
                       </CAccordionBody>
