@@ -67,48 +67,7 @@ const CustomizeServices = () => {
         <ul className="space-y-2">
 
           <form onSubmit={handleSubmit(handleCreateTask)}>
-            <CAccordion flush className="mr-4 outline outline-offset-2 outline-1">
-              <CAccordionItem itemKey={1}>
-                <CAccordionHeader>
-                  <MDBIcon far icon="images" />&nbsp;Poster
-                </CAccordionHeader>
-                <CAccordionBody style={{ backgroundColor: "rgb(35,40,45)", padding: "15px 0px" }}>
-                 <li> <label className="block text-sm font-medium text-white">
-                                  <MDBIcon
-                                    far
-                                    icon="image"
-                                    className="text-white"
-                                    size=""
-                                  />{" "}
-                                  &nbsp;Image
-                                </label>
-                                <div className="mt-1 flex justify-center px-6 pt- pb-2 border-2 border-gray-300 border-dashed rounded-md w-64 ">
-                                  <div className="space-y-1 text-center">
-                                    <MDBIcon icon="image" className="text-white" size="2x" />
-
-                                    <div className="flex text-sm text-gray-600">
-                                      <label
-                                        htmlFor="file-upload"
-                                        className="relative cursor-pointer rounded-md font-medium text-blue-700 hover:text-blue-900  focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
-                                      >
-                                        <span>Upload a file</span>
-                                        <input
-                                          id="file-upload"
-                                          name="file-upload"
-                                          type="file"
-                                          className="sr-only"
-                                        />
-                                      </label>
-                                      <p className="pl-1 text-white">or drag and drop</p>
-                                    </div>
-                                    <p className="text-xs text-white">PNG, JPG, GIF up to 10MB</p>
-                                  </div>
-                                </div></li>
-                </CAccordionBody>
-              </CAccordionItem>
-            </CAccordion>
-            <hr className="w-64 bg-white my-2" />
-
+           
             <CAccordion flush className="mr-4 outline outline-offset-2 outline-1">
               <CAccordionItem itemKey={1}>
                 <CAccordionHeader>

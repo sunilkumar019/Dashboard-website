@@ -9,7 +9,7 @@ import { useFetchTasksQuery } from "../../store/actionReducers/aboutSlice";
 import { NotificationContainer } from 'react-notifications';
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3002/api/web/customizeAbout/get`)
+  const res = await fetch(`http://localhost:3002/api/web/customizeabout/get`)
   const data = await res.json()
 
   return { props: { data } }
@@ -24,6 +24,8 @@ const About = ({ data }) => {
   //   const {bannerImage,cardsList,}=data.data[0]
   //   setImage(value)
   // },[])
+
+
   return (
     <div>
       <NotificationContainer />
@@ -51,10 +53,10 @@ const About = ({ data }) => {
                 <Image
                   className='relative  '
                   alt="About banner"
-                  src={`${path}${item.bannerImage}`} height={250} width={500} />
-                <span className="absolute grow mt-5 text-white w-100 ">
-                  <h1 className="animated bounce slower infinite text-center sm:text-sm pt-5" style={{ fontWeight: "bold", fontSize: "52px", }} >{item.bannerText}</h1>
-                </span>
+                  src={`${path}${item.bannerImage}`} height={260} width={1350} />
+                              <span className="absolute pt-5 mt-5 text-white w-100">
+                <h1 className="animated bounce slower infinite text-center "  style={{ fontWeight: "bold", fontSize: "52px" , }} >{item.bannerText}</h1>
+              </span>
               </CCard>
             </div>
 

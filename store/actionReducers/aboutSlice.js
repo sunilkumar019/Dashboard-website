@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const aboutApi = createApi({
   reducerPath: 'aboutApi',
-  baseQuery: fetchBaseQuery({ baseUrl:` http://localhost:3002/api/web/customizeAbout/` }),
+  baseQuery: fetchBaseQuery({ baseUrl:` http://localhost:3002/api/web/customizeabout/` }),
   tagTypes: ["About"],
   endpoints: (build) => ({
     fetchTasks: build.query({ query: () => "/get", providesTags: ["About"] }),

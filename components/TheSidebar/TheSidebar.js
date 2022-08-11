@@ -66,6 +66,7 @@ const TheSidebar = () => {
                 <button onClick={() => { setVisible({ visible }); openNav() }}>
                   <MDBIcon icon="bars" className="text-white mr-1" />
                 </button>
+
                 <select
                   type="select"
                   className="py-1 text-white  sidebarColor1  outline-none px-4 border border-gray-300 rounded-md  shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 "
@@ -108,7 +109,7 @@ const TheSidebar = () => {
               <a target="_blank" className=" text-center w-full inline-block">
                 <small className="text-white">You are customizing </small>{" "}
                 <br />
-                <h5 className="text-white ">Pharma</h5>{" "}
+                <h5 className="text-white ">webHopers</h5>{" "}
               </a>
             </Link>
             <span className="ml-72" ><CPopover

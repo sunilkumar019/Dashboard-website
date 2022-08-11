@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   ssr:true,
   images: {
-    domains: ['localhost'],
+    domains: ['localhost','cutewallpaper.org','media.nature.com','images.squarespace-cdn.com'],
   },
 }
 

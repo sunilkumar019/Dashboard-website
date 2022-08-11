@@ -11,28 +11,28 @@ const CustomizeAbout = () => {
 
   const { data, } = useFetchTasksQuery();
   const [createTask] = useCreateTaskMutation();
+
   const { register, handleSubmit, setValue, } = useForm({
-    defaultValues: data.data[0]
+    defaultValues: data
   });
 
   const handleCreateTask = async (data) => {
-    const { bannerImage, cardsList } = data;
+    const { bannerImage, cardsList, goalsList } = data;
     console.log(data)
+
     let formData = new FormData()
-    formData.append("bannerImage", bannerImage[0])
-    cardsList.forEach((item) => {
-      formData.append("imageUrl", item.imageUrl[0])
-    })
-    var cardData = cardsList.map((item) => ({ ...item, imageUrl:`core/uploads/webCustomize/about/${item.imageUrl[0].name}` }))
-    formData.append("bannerImage", `core/uploads/webCustomize/about/${bannerImage[0].name}`)
     formData.append("bannerText", data.bannerText)
+    formData.append("bannerImage", bannerImage[0])
     formData.append("heading", data.heading)
     formData.append("text", data.text)
+    cardsList.forEach((item) => { formData.append("imageUrl", item.imageUrl[0]) })
+    let cardData = cardsList.map((item) => ({ ...item, imageUrl: `core/uploads/webCustomize/about/${item.imageUrl[0].name}` }))
     formData.append("cardsList", JSON.stringify(cardData))
-    formData.append("goalsList", JSON.stringify(data.goalsList))
+    goalsList.forEach((item) => { formData.append("imageUrl2", item.imageUrl2[0]) })
+    let goalsData = goalsList.map((item) => ({ ...item, imageUrl2: `core/uploads/webCustomize/about/${item.imageUrl2[0].name}` }))
+    formData.append("goalsList", JSON.stringify(goalsData))
     await createTask(formData).unwrap();
     NotificationManager.success('Successfully updated.');
-
   };
   return (
     <div>
@@ -53,7 +53,7 @@ const CustomizeAbout = () => {
                       <CAccordionHeader>
                         <MDBIcon fas icon="images" />&nbsp;banner
                       </CAccordionHeader>
-                      <CAccordionBody  className="sidebarCenterSet">
+                      <CAccordionBody className="sidebarCenterSet">
                         <li  >
                           <label className="block text-sm font-medium text-white">
                             <MDBIcon
@@ -75,6 +75,7 @@ const CustomizeAbout = () => {
                                   <input
                                     id="bannerImage"
                                     type='file'
+                                    src={item.bannerImage}
                                     className="truncateText"
                                     {...register(`bannerImage`)}
                                   />
@@ -276,14 +277,14 @@ const CustomizeAbout = () => {
 
                                 <div className="flex text-sm text-gray-600">
                                   <label
-                                    htmlFor="file-upload"
+                                    htmlFor="imageUrl2"
                                     className="relative cursor-pointer rounded-md font-medium text-white hover:text-blue-900  focus-within:outline-none"
                                   >
                                     <input
                                       className="truncateText"
-                                      id="imageUrl"
+                                      id="imageUrl2"
                                       type="file"
-
+                                      {...register(`goalsList[${index}].imageUrl2`)}
                                     />
 
                                   </label>
@@ -292,6 +293,24 @@ const CustomizeAbout = () => {
                               </div>
                             </div>
 
+                            <div className="flex justify-center" >
+                              <CFormCheck
+                                inline type="radio"
+                                className="text-light sm:text-sm font-medium"
+                                name="float"
+                                id="float1"
+                                {...register(`goalsList[${index}].float`)}
+                                label="Left"
+                                 />
+
+                              <CFormCheck
+                                inline type="radio"
+                                className="text-light sm:text-sm font-medium "
+                                name="float"
+                                id="float2"
+                                {...register(`goalsList[${index}].float`, { value: 'row-reverse' })}
+                                label="Right" />
+                            </div>
                             <label
                               htmlFor="goals_heading"
                               className="block text-sm font-medium text-white mt-2"
@@ -333,14 +352,6 @@ const CustomizeAbout = () => {
                               maxLength={200}
                               required
                             />
-                            <CFormCheck
-                              type="checkbox"
-                              className="text-light sm:text-sm font-medium"
-                              name="float"
-                              id="float"
-
-                              {...register(`goalsList[${index}].float`, { value: ' row-reverse' })}
-                              label="Right" />
 
                             <hr className="w-64 mx-auto bg-white my-2" />
                           </li>)
@@ -352,8 +363,8 @@ const CustomizeAbout = () => {
 
                   <button
                     type="submit"
-                    className="  inline-flex justify-center py-1 px-28 my-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
+                    className="  inline-flex justify-center py-1  my-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    style={{ padding: "5px 109px" }} >
                     Update
                   </button>
 

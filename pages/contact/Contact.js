@@ -2,12 +2,22 @@ import { CCard, CCardText, CCardTitle, CCol, CContainer, CRow, CCardImg  } from 
 import Link from "next/link";
 import { MDBIcon } from "mdbreact";
 import { CCarousel,CCarouselItem, CImage,} from '@coreui/react'
- 
-const Contact = ( ) => {
- 
+import { NotificationContainer } from 'react-notifications';
+import Image from 'next/image';
+
+
+export async function getServerSideProps() {
+  const res = await fetch(`http://localhost:3002/api/web/customizecontact/get`)
+  const data = await res.json()
+
+  return { props: { data } }
+}
+
+const Contact = ( {data}) => {
+  var path = "http://localhost:3002/"
   return (
     <div>
-
+  <NotificationContainer />
       {/* Sticky Social Bar */}
       <section>
         <div className="icon-Homebar">
@@ -24,20 +34,22 @@ const Contact = ( ) => {
         </div>
       </section>
 
-      <div>
-        <CCard>
-          <CCardImg
-          className='relative h-72 '
-            alt="banner image"
-            src="xxx"
+    {
+      data&&data.data.map((item,index)=>{
+        return(<div key={index} >
+          <CCard>
+            <Image
+            className='relative'
+              alt="banner image"
+              src={`${path}${item.bannerImage}`} height={260} width={1350} />
+              <span className="absolute pt-5 mt-5 text-white w-100">
+                <h1 className="animated bounce slower infinite text-center "  style={{ fontWeight: "bold", fontSize: "52px" , }} >{item.bannerText}</h1>
+              </span>
           
-          />
-            <span className="absolute pt-5 mt-5 text-white w-100">
-              <h1 className="animated bounce slower infinite text-center"  style={{ fontWeight: "bold", fontSize: "52px" , }} >Contact Us</h1>
-            </span>
-        
-        </CCard>
-      </div>
+          </CCard>
+        </div>)
+      })
+    }
       {/*contact us*/}
       <section >
         <div className="container-lg py-8 mt-5">

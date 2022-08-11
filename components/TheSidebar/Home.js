@@ -332,8 +332,8 @@ const Home = () => {
            
             <button
               type="submit"
-              className="  inline-flex justify-center py-1 px-28 my-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
+              className="  inline-flex justify-center py-1  my-3 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              style={{padding:"5px 109px"}} >
               Update
             </button>
           </form>

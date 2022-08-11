@@ -7,6 +7,7 @@ import { CCardTitle } from "@coreui/react";
 import CarouselSlider from "./slider/CarouselSlider";
 import ProductsSlider from "./slider/ProductsSlider";
 import { useFetchTasksQuery, useCreateTaskMutation, useDeleteTaskMutation, useUpdateTaskMutation } from "../store/actionReducers/homeSlice";
+
    
  export async function getServerSideProps() {
   const res = await fetch(`http://localhost:3002/api/web/customizehome/get`)
@@ -42,13 +43,14 @@ const Home = ({data}) => {
 
       {/* carousel slider */}
       <section>
+
         <CarouselSlider />
       </section>
 
       {/* About */}
       <section>
-        <CContainer className="pt-5">
-          <CRow className="row text py-3" >
+        <CContainer className="mt-5">
+          <CRow className="row text  " >
             <div className="col-lg-12 m-auto   " >
               <h1 className="h1 pl-3 animated pulse slower infinite " id="myanimate"><span style={{ color: "#E1204D" }} className="slide-out-right">Welcome To</span> Pharma Biotech Pvt.Ltd</h1>
               <b>  <p className="text-muted">

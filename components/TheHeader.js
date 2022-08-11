@@ -8,7 +8,7 @@ const TheHeader = () => {
   <>
 
       <CContainer fluid className="d-none d-lg-block globalColor1 ">
-        <CRow className="gx-0 bg-gradient-to-r from-rose-500 to-rose-900">
+        <CRow className="gx-0 bg-gradient-to-r from-rose-500 to-stone-800">
           <CCol md={8} className=" text-end text-lg-end mb-2 mb-lg-0">
             <div className="d-inline-flex align-items-end">
               <small className="py-3 ">
@@ -50,7 +50,7 @@ const TheHeader = () => {
         <Link href="#">
           <a className="navbar-brand p-0">
             <h1 className=" text-rose-600 ">
-            <MDBIcon fab icon="ioxhost" />Pharma
+            <MDBIcon fab icon="ioxhost" />webHopers
             </h1>
           </a>
         </Link>
@@ -62,8 +62,8 @@ const TheHeader = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse mx-5" id="navbarCollapse">
-          <div className="navbar-nav  ms-auto ">
+        <div className="collapse navbar-collapse mx-5 pl-36 " id="navbarCollapse">
+          <div className="navbar-nav mx-auto">
             
             <Link href="/">
               <a className="nav-item border-end nav-link  px-4">Home</a>
